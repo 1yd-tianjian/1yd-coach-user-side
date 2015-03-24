@@ -1,0 +1,31 @@
+.tab-item{
+	color: #929292;
+}
+.tabs-icon-top > .tabs .tab-item{
+	opacity: 1;
+}
+.tab-item.tab-item-active{
+	color: #f60;
+}
+.tabs-stable > .tabs, .tabs.tabs-stable{
+	color: #f60;
+}
+.tabs-top.tabs-striped{
+	.tab-item.tab-item-active{
+		color: #f60;
+	}
+} 
+.tabs-striped.tabs-stable{
+	.tab-item{
+		color: #929292;
+	}
+	.tab-item.tab-item-active{
+		border-color: #f60;
+	}
+	.tab-item.active{
+		border-color: #929292;
+	}
+	.tab-item.activated{
+		border: none;
+	}
+}

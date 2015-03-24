@@ -1,0 +1,82 @@
+<ion-view view-title="教练">
+    <div class="bar bar-subheader filter-bar row">
+        <div class="col" ng-click="selectCate($event)">运动项目<i class="icon ion-chevron-down"></i>
+        </div>
+        <div class="col">选择性别<i class="icon ion-chevron-down"></i>
+        </div>
+        <div class="col">智能排序<i class="icon ion-chevron-down"></i>
+        </div>
+    </div>
+    <ion-content class="has-subheader">
+        <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-arrow-down-c" on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list class="coach-list">
+            <ion-item class="item-remove-animate item-avatar" ng-repeat="coach in coaches" type="item-text-wrap" href="#/tab/coaches/{{coach.id}}" nav-direction="swap" nav-transition="ios">
+                <img src="./img/coach-img.jpg">
+                <div class="item-txt">
+                    <i class="sex-icon sex-female"></i>
+                    <span class="fr location"><i class="icon ion-ios-location"></i>12.10km</span>
+                    <h2>{{coach.name}}</h2>
+
+                </div>
+
+                <div class="item-txt">
+                    <div class="coach-tag">
+                        <em>散打教练</em>
+                    </div>
+                </div>
+                <div class="item-txt">
+                    <div class="icon-block">
+                        <i class="icon ion-heart assertive"></i>
+                        <p>已收藏</p>
+                    </div>
+                    <div class="icon-block">
+                        <i class="icon ion-ios-star energized"></i>
+                        <p><i class="assertive">4.0</i>分
+                        </p>
+                    </div>
+                    <div class="icon-block">
+                        <i class="icon ion-ios-people"></i>
+                        <p><i class="assertive">12</i>人</p>
+                    </div>
+                    <div class="icon-block">
+                        <i class="icon ion-ios-chatbubble"></i>
+                        <p><i class="assertive">12</i>条</p>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore()" distance="5%">
+        </ion-infinite-scroll>
+    </ion-content>
+    <script id="templates/cate.html" type="text/ng-template">
+        <ion-popover-view>
+            <ion-content>
+                <div class="list">
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                    <a class="item" href="">羽毛球</a>
+                </div>
+            </ion-content>
+        </ion-popover-view>
+    </script>
+</ion-view>
