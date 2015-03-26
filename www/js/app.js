@@ -96,6 +96,7 @@ angular.module('1yd-coach', ['ionic', 'restangular', '1yd-coach.controllers', '1
     $urlRouterProvider.otherwise('/tab/home');
 
 
-    RestangularProvider.setBaseUrl('http://api-test.1yd.me/api/');
+    // RestangularProvider.setBaseUrl('http://api-test.1yd.me/api/');
+    RestangularProvider.setBaseUrl('http://api.1yd.me/api/');
 
 });

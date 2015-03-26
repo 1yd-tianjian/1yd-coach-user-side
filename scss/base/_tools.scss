@@ -1,0 +1,27 @@
+@mixin clearfix {
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+.fr {
+    float: right;
+}
+.slider-pager {
+    right: 20px;
+    text-align: right;
+    .slider-pager-page {
+        display: inline-block;
+        margin: 0px 3px;
+        width: 15px;
+        color: #fff;
+        text-decoration: none;
+        opacity: 1;
+    }
+    .slider-pager-page.active {
+        color: $public-color;
+    }
+}

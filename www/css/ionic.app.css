@@ -15,9 +15,6 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
-.fr {
-  float: right; }
-
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -7594,6 +7591,22 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.fr {
+  float: right; }
+
+.slider-pager {
+  right: 20px;
+  text-align: right; }
+  .slider-pager .slider-pager-page {
+    display: inline-block;
+    margin: 0px 3px;
+    width: 15px;
+    color: #fff;
+    text-decoration: none;
+    opacity: 1; }
+  .slider-pager .slider-pager-page.active {
+    color: #ff6600; }
+
 .bar.bar-light .title {
   color: #f60; }
 .bar.bar-light .button.button-clear {
@@ -7623,6 +7636,130 @@ a.button {
 .tabs-striped.tabs-stable .tab-item.activated {
   border: none; }
 
+.coach-box {
+  background: url(../img/coach-bg.jpg) no-repeat;
+  background-size: 100%;
+  position: relative; }
+  .coach-box .coach-info {
+    padding: 10px 15px 10px 110px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+    .coach-box .coach-info .left-area {
+      position: absolute;
+      left: 20px; }
+      .coach-box .coach-info .left-area img {
+        width: 65px;
+        height: 65px;
+        border: 3px solid rgba(102, 102, 102, 0.3);
+        border-radius: 50%; }
+      .coach-box .coach-info .left-area h3 {
+        font-size: 14px;
+        text-align: center;
+        color: #603a3a;
+        margin: 5px 0 5px 0; }
+        .coach-box .coach-info .left-area h3 .sex-icon {
+          float: left;
+          width: 12px;
+          height: 12px;
+          background: url(../img/sex.png) no-repeat;
+          background-position: 0 0;
+          background-size: 12px;
+          margin-top: 2px; }
+        .coach-box .coach-info .left-area h3 .sex-female {
+          background-position: 0 -12px; }
+      .coach-box .coach-info .left-area p {
+        color: #fff;
+        font-size: 12px;
+        text-align: center; }
+    .coach-box .coach-info .right-area {
+      padding-top: 10px;
+      float: left;
+      width: 100%;
+      position: relative; }
+      .coach-box .coach-info .right-area .coach-star .score {
+        font-size: 24px;
+        color: #ff6600;
+        margin-left: 10px;
+        font-style: italic; }
+      .coach-box .coach-info .right-area .coach-star .star-icon-dark {
+        background: url(../img/star.png) no-repeat;
+        background-position: 0 0;
+        background-size: 100%;
+        width: 14px;
+        height: 14px;
+        display: inline-block; }
+      .coach-box .coach-info .right-area .coach-star .star-icon-light {
+        background: url(../img/star.png) no-repeat;
+        background-position: 0 -14px;
+        background-size: 100%;
+        width: 14px;
+        height: 14px;
+        display: inline-block; }
+      .coach-box .coach-info .right-area .coach-date li {
+        color: #603a3a; }
+        .coach-box .coach-info .right-area .coach-date li span {
+          color: #fff;
+          margin-left: 10px; }
+        .coach-box .coach-info .right-area .coach-date li em {
+          color: #ff6600;
+          font-size: 10px;
+          display: inline-block;
+          border-radius: 3px;
+          background: #fff;
+          margin-left: 10px;
+          line-height: 1;
+          padding: 2px;
+          vertical-align: 2px; }
+      .coach-box .coach-info .right-area .coach-number {
+        width: 36px;
+        height: 36px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        background: rgba(102, 102, 102, 0.4);
+        text-align: center;
+        color: #fff;
+        border-radius: 5px; }
+        .coach-box .coach-info .right-area .coach-number .icon {
+          font-size: 20px; }
+        .coach-box .coach-info .right-area .coach-number p {
+          font-size: 10px;
+          line-height: 1; }
+    .coach-box .coach-info:before, .coach-box .coach-info:after {
+      content: " ";
+      display: table; }
+    .coach-box .coach-info:after {
+      clear: both; }
+  .coach-box .coach-photos .photo-item {
+    width: calc(33.3333% - 1px);
+    height: 86px;
+    float: left;
+    overflow: hidden;
+    margin-right: 1px;
+    margin-bottom: 1px; }
+    .coach-box .coach-photos .photo-item img {
+      width: 100%;
+      min-height: 80px; }
+    .coach-box .coach-photos .photo-item:nth-child(3n) {
+      margin-right: 0;
+      width: 33.3333%; }
+  .coach-box .coach-photos:before, .coach-box .coach-photos:after {
+    content: " ";
+    display: table; }
+  .coach-box .coach-photos:after {
+    clear: both; }
+  .coach-box .coach-tab {
+    padding: 5px 0; }
+    .coach-box .coach-tab .col {
+      border-right: 1px solid rgba(255, 255, 255, 0.3);
+      text-align: center;
+      line-height: 20px;
+      color: #fff;
+      padding: 5px 0; }
+      .coach-box .coach-tab .col:last-child {
+        border: 0; }
+    .coach-box .coach-tab .active {
+      color: #603a3a; }
+
 .filter-bar {
   background: #e9e8e8; }
   .filter-bar .col {
@@ -7648,54 +7785,51 @@ a.button {
     width: 100%;
     height: 100%;
     border-radius: 10px; }
-  .coach-list .item-avatar .item-content .item-txt {
-    *zoom: 1; }
-    .coach-list .item-avatar .item-content .item-txt .sex-icon {
-      float: left;
-      width: 12px;
-      height: 12px;
-      background: url(../img/sex.png) no-repeat;
-      background-position: 0 0;
-      background-size: 12px;
-      margin-right: 5px;
-      margin-top: 3px; }
-    .coach-list .item-avatar .item-content .item-txt .sex-female {
-      background-position: 0 -12px; }
-    .coach-list .item-avatar .item-content .item-txt h2 {
-      width: 60%; }
-    .coach-list .item-avatar .item-content .item-txt .location {
+  .coach-list .item-avatar .item-content .item-txt .sex-icon {
+    float: left;
+    width: 12px;
+    height: 12px;
+    background: url(../img/sex.png) no-repeat;
+    background-position: 0 0;
+    background-size: 12px;
+    margin-right: 5px;
+    margin-top: 3px; }
+  .coach-list .item-avatar .item-content .item-txt .sex-female {
+    background-position: 0 -12px; }
+  .coach-list .item-avatar .item-content .item-txt h2 {
+    width: 60%; }
+  .coach-list .item-avatar .item-content .item-txt .location {
+    font-size: 12px;
+    vertical-align: middle;
+    color: #787878; }
+    .coach-list .item-avatar .item-content .item-txt .location .icon {
+      margin-right: 3px;
+      color: #ff6600; }
+  .coach-list .item-avatar .item-content .item-txt .coach-tag {
+    margin: 4px 0 8px 0; }
+    .coach-list .item-avatar .item-content .item-txt .coach-tag em {
+      border: 1px solid #ffcc89;
+      color: #ffaa16;
+      padding: 2px;
       font-size: 12px;
-      vertical-align: middle;
-      color: #787878; }
-      .coach-list .item-avatar .item-content .item-txt .location .icon {
-        margin-right: 3px;
-        color: #ff6600; }
-    .coach-list .item-avatar .item-content .item-txt .coach-tag {
-      margin: 4px 0 8px 0; }
-      .coach-list .item-avatar .item-content .item-txt .coach-tag em {
-        border: 1px solid #ffcc89;
-        color: #ffaa16;
-        padding: 2px;
-        font-size: 12px;
-        border-radius: 2px; }
-    .coach-list .item-avatar .item-content .item-txt .icon-block {
-      background: #f9f9f9;
-      border-radius: 5px;
-      width: 36px;
-      height: 36px;
-      text-align: center;
-      float: left;
-      margin-right: 10px;
-      padding-top: 2px;
-      color: #787878; }
-      .coach-list .item-avatar .item-content .item-txt .icon-block .icon {
-        font-size: 20px; }
-      .coach-list .item-avatar .item-content .item-txt .icon-block p {
-        font-size: 10px;
-        line-height: 1; }
-    .coach-list .item-avatar .item-content .item-txt:before, .coach-list .item-avatar .item-content .item-txt:after {
-      display: table;
-      content: "";
-      line-height: 0; }
-    .coach-list .item-avatar .item-content .item-txt:after {
-      clear: both; }
+      border-radius: 2px; }
+  .coach-list .item-avatar .item-content .item-txt .icon-block {
+    background: #f9f9f9;
+    border-radius: 5px;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    float: left;
+    margin-right: 10px;
+    padding-top: 2px;
+    color: #787878; }
+    .coach-list .item-avatar .item-content .item-txt .icon-block .icon {
+      font-size: 20px; }
+    .coach-list .item-avatar .item-content .item-txt .icon-block p {
+      font-size: 10px;
+      line-height: 1; }
+  .coach-list .item-avatar .item-content .item-txt:before, .coach-list .item-avatar .item-content .item-txt:after {
+    content: " ";
+    display: table; }
+  .coach-list .item-avatar .item-content .item-txt:after {
+    clear: both; }

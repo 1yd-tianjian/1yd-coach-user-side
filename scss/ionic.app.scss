@@ -18,29 +18,20 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
-$public-color: #ff6600;
-
-@mixin clearfix {
-    &:before,
-  	&:after {
-	    content: " ";
-	    display: table;
-  	}
-  	&:after {
-	    clear: both;
-  	}
-}
-
-.fr{
-	float: right;
-}
-
-
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+// base
+@import "base/variables";
+@import "base/tools";
+
+// layout
 @import "layout/header";
 @import "layout/footer";
 @import "layout/tab";
+
+// page
+@import "page/coach-detail";
 @import "page/tab-coaches";
+
 

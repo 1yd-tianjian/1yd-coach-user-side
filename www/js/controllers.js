@@ -2,16 +2,9 @@ angular.module('1yd-coach.controllers', [])
 
 .controller('HomeCtrl', function($scope) {})
 
-.controller('CoachesCtrl', function($scope, $ionicPopover, Coaches, Restangular) {
+.controller('CoachesCtrl', function($scope, $ionicPopover, Coaches) {
 
-    // console.log(Restangular);
 
-    var allCoaches = Restangular.all('coaches').getList();
-    allCoaches.then(function(res){
-        console.log(res);
-    },function(err){
-        console.log(err);
-    });
 	$ionicPopover.fromTemplateUrl('templates/cate.html', {
 	    scope: $scope,
 	  }).then(function(popover) {
