@@ -7636,6 +7636,26 @@ a.button {
 .tabs-striped.tabs-stable .tab-item.activated {
   border: none; }
 
+.star .score {
+  font-size: 24px;
+  color: #ff6600;
+  margin-left: 10px;
+  font-style: italic; }
+.star .star-icon-dark {
+  background: url(../img/star.png) no-repeat;
+  background-position: 0 0;
+  background-size: 100%;
+  width: 14px;
+  height: 14px;
+  display: inline-block; }
+.star .star-icon-light {
+  background: url(../img/star.png) no-repeat;
+  background-position: 0 -14px;
+  background-size: 100%;
+  width: 14px;
+  height: 14px;
+  display: inline-block; }
+
 .coach-box {
   background: url(../img/coach-bg.jpg) no-repeat;
   background-size: 100%;
@@ -7675,25 +7695,6 @@ a.button {
       float: left;
       width: 100%;
       position: relative; }
-      .coach-box .coach-info .right-area .coach-star .score {
-        font-size: 24px;
-        color: #ff6600;
-        margin-left: 10px;
-        font-style: italic; }
-      .coach-box .coach-info .right-area .coach-star .star-icon-dark {
-        background: url(../img/star.png) no-repeat;
-        background-position: 0 0;
-        background-size: 100%;
-        width: 14px;
-        height: 14px;
-        display: inline-block; }
-      .coach-box .coach-info .right-area .coach-star .star-icon-light {
-        background: url(../img/star.png) no-repeat;
-        background-position: 0 -14px;
-        background-size: 100%;
-        width: 14px;
-        height: 14px;
-        display: inline-block; }
       .coach-box .coach-info .right-area .coach-date li {
         color: #603a3a; }
         .coach-box .coach-info .right-area .coach-date li span {
@@ -7759,6 +7760,110 @@ a.button {
         border: 0; }
     .coach-box .coach-tab .active {
       color: #603a3a; }
+
+.coach-wrapper .coach-about .item {
+  padding: 10px 32px 10px 20px;
+  border: 0;
+  position: relative; }
+  .coach-wrapper .coach-about .item header > h2 {
+    color: #ff6600;
+    font-size: 12px;
+    position: relative;
+    padding-left: 12px;
+    margin-bottom: 5px; }
+    .coach-wrapper .coach-about .item header > h2 .dot {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: #ff6600;
+      border-radius: 50%; }
+  .coach-wrapper .coach-about .item .note {
+    color: #333;
+    font-size: 12px;
+    padding-left: 12px;
+    white-space: normal;
+    text-align: Justify; }
+  .coach-wrapper .coach-about .item .recommend {
+    margin-left: -20px;
+    margin-right: -32px;
+    overflow: hidden; }
+    .coach-wrapper .coach-about .item .recommend .recommend-coach {
+      width: 25%;
+      float: left;
+      position: relative; }
+      .coach-wrapper .coach-about .item .recommend .recommend-coach .recommend-img {
+        display: block;
+        width: 100%;
+        height: 100%; }
+      .coach-wrapper .coach-about .item .recommend .recommend-coach .recommend-txt {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: rgba(0, 0, 0, 0.6);
+        text-align: center;
+        color: #fff;
+        font-size: 12px; }
+        .coach-wrapper .coach-about .item .recommend .recommend-coach .recommend-txt span {
+          width: 40%;
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+  .coach-wrapper .coach-about .item:nth-of-type(even) {
+    background: #e9e8e8; }
+.coach-wrapper .coach-evaluate {
+  padding-bottom: 20px; }
+  .coach-wrapper .coach-evaluate header {
+    padding: 10px 15px;
+    background: #f3f4f9; }
+    .coach-wrapper .coach-evaluate header h2 {
+      font-size: 15px;
+      margin-bottom: 0;
+      color: #333; }
+      .coach-wrapper .coach-evaluate header h2 .icon {
+        font-size: 18px;
+        color: #999;
+        margin-right: 5px;
+        vertical-align: -1px; }
+  .coach-wrapper .coach-evaluate .item {
+    padding: 10px 25px; }
+    .coach-wrapper .coach-evaluate .item .evaluate-info {
+      position: relative;
+      padding-left: 65px; }
+      .coach-wrapper .coach-evaluate .item .evaluate-info h2 {
+        font-size: 12px;
+        color: #333; }
+        .coach-wrapper .coach-evaluate .item .evaluate-info h2 .name {
+          display: inline-block;
+          width: 50%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .coach-wrapper .coach-evaluate .item .evaluate-info h2 .date {
+          float: right;
+          color: #999; }
+      .coach-wrapper .coach-evaluate .item .evaluate-info p {
+        font-size: 12px;
+        color: #333; }
+        .coach-wrapper .coach-evaluate .item .evaluate-info p span {
+          color: #999; }
+      .coach-wrapper .coach-evaluate .item .evaluate-info img {
+        position: absolute;
+        left: 0;
+        max-width: 50px;
+        max-height: 50px;
+        border-radius: 50%; }
+    .coach-wrapper .coach-evaluate .item .evaluate-cont {
+      font-size: 12px;
+      color: #333;
+      text-indent: 2em;
+      white-space: normal;
+      text-align: Justify; }
 
 .filter-bar {
   background: #e9e8e8; }
