@@ -9,113 +9,113 @@ angular.module('1yd-coach', ['ionic', 'restangular', '1yd-coach.controllers', '1
 
 .run(function($ionicPlatform, $rootScope, $state) {
 
-    $rootScope.$on('$ionicView.beforeEnter', function () {
-        $rootScope.hideTabs = false;
-      if($state.current.name === 'tab.coach-detail'){
-        $rootScope.hideTabs = true;
-      }
-    });
+  $rootScope.$on('$ionicView.beforeEnter', function() {
+    $rootScope.hideTabs = false;
+    if ($state.current.name === 'tab.coach-detail' || $state.current.name === 'tab.course-detail') {
+      $rootScope.hideTabs = true;
+    }
+  });
 
-    $ionicPlatform.ready(function() {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        if (window.cordova && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
-        }
-    });
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleDefault();
+    }
+  });
 })
 
 .config(function($stateProvider, $urlRouterProvider, RestangularProvider) {
 
-    // Ionic uses AngularUI Router which uses the concept of states
-    // Learn more here: https://github.com/angular-ui/ui-router
-    // Set up the various states which the app can be in.
-    // Each state's controller can be found in controllers.js
-    $stateProvider
+  // Ionic uses AngularUI Router which uses the concept of states
+  // Learn more here: https://github.com/angular-ui/ui-router
+  // Set up the various states which the app can be in.
+  // Each state's controller can be found in controllers.js
+  $stateProvider
 
-    // setup an abstract state for the tabs directive
-        .state('tab', {
-        url: "/tab",
-        abstract: true,
-        templateUrl: "templates/tab/tabs.html"
-    })
+  // setup an abstract state for the tabs directive
+    .state('tab', {
+    url: "/tab",
+    abstract: true,
+    templateUrl: "templates/tab/tabs.html"
+  })
 
-    // Each tab has its own nav history stack:
+  // Each tab has its own nav history stack:
 
-    .state('tab.home', {
-        url: '/home',
-        views: {
-            'tab-home': {
-                templateUrl: 'templates/tab/tab-home.html'
-            }
-        }
-    })
+  .state('tab.home', {
+    url: '/home',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/tab/tab-home.html'
+      }
+    }
+  })
 
-    .state('tab.coaches', {
-        url: '/coaches',
-        views: {
-            'tab-coach': {
-                templateUrl: 'templates/tab/tab-coaches.html',
-                controller: 'CoachListCtrl'
-            }
-        }
-    })
+  .state('tab.coaches', {
+    url: '/coaches',
+    views: {
+      'tab-coach': {
+        templateUrl: 'templates/tab/tab-coaches.html',
+        controller: 'CoachListCtrl'
+      }
+    }
+  })
 
-    .state('tab.coach-detail', {
-        url: '/coaches/:coachId',
-        views: {
-            'tab-coach': {
-                templateUrl: 'templates/coach-detail.html',
-                controller: 'CoachDetailCtrl'
-            }
-        }
-    })
+  .state('tab.coach-detail', {
+    url: '/coaches/:coachId',
+    views: {
+      'tab-coach': {
+        templateUrl: 'templates/coach-detail.html',
+        controller: 'CoachDetailCtrl'
+      }
+    }
+  })
 
-    .state('tab.courses', {
-        url: '/courses',
-        views: {
-            'tab-course': {
-                templateUrl: 'templates/tab/tab-courses.html',
-                controller: 'CourseListCtrl'
-            }
-        }
-    })
+  .state('tab.courses', {
+    url: '/courses',
+    views: {
+      'tab-course': {
+        templateUrl: 'templates/tab/tab-courses.html',
+        controller: 'CourseListCtrl'
+      }
+    }
+  })
 
-    .state('tab.course-detail', {
-        url: '/courses/:courseId',
-        views: {
-            'tab-course': {
-                templateUrl: 'templates/course-detail.html',
-                controller: 'CourseDetailCtrl'
-            }
-        }
-    })
+  .state('tab.course-detail', {
+    url: '/courses/:courseId',
+    views: {
+      'tab-course': {
+        templateUrl: 'templates/course-detail.html',
+        controller: 'CourseDetailCtrl'
+      }
+    }
+  })
 
-    .state('tab.mine', {
-        url: '/mine',
-        views: {
-            'tab-mine': {
-                templateUrl: 'templates/tab/tab-mine.html'
-            }
-        }
-    })
+  .state('tab.mine', {
+    url: '/mine',
+    views: {
+      'tab-mine': {
+        templateUrl: 'templates/tab/tab-mine.html'
+      }
+    }
+  })
 
-    // .state('signIn', {
-    //     url: '/login',
-    //     templateUrl: 'templates/login.html'
-    //     }
-    // })
-    ;
+  // .state('signIn', {
+  //     url: '/login',
+  //     templateUrl: 'templates/login.html'
+  //     }
+  // })
+  ;
 
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/home');
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/tab/home');
 
 
-    // RestangularProvider.setBaseUrl('http://api-test.1yd.me/api/');
-    RestangularProvider.setBaseUrl('http://api.1yd.me/api/');
+  // RestangularProvider.setBaseUrl('http://api-test.1yd.me/api/');
+  RestangularProvider.setBaseUrl('http://api.1yd.me/api/');
 
 });

@@ -11,7 +11,7 @@
         <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-arrow-down-c" on-refresh="doRefresh()">
         </ion-refresher>
         <ion-list class="coach-list">
-            <ion-item class="item-remove-animate item-avatar" ng-repeat="coach in coaches" type="item-text-wrap" href="#/tab/coaches/{{coach.id}}" nav-direction="swap" nav-transition="ios">
+            <ion-item class="item-avatar" ng-repeat="coach in coaches" type="item-text-wrap" href="#/tab/coaches/{{coach.id}}">
                 <img src="./img/coach-img.jpg">
                 <div class="item-txt">
                     <i class="sex-icon sex-female"></i>

@@ -15,12 +15,12 @@ angular.module('1yd-coach.controllers')
 
 
     $scope.courses = Courses.all();
-    $scope.remove = function(coach) {
-        Courses.remove(coach);
+    $scope.remove = function(course) {
+        Courses.remove(course);
     }
 })
 
 .controller('CourseDetailCtrl', function($scope, $stateParams, $ionicNavBarDelegate, $ionicHistory, Courses) {
-    $scope.course = Courses.get($stateParams.coachId);
+    $scope.course = Courses.get($stateParams.courseId);
 
 });
