@@ -7,7 +7,15 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('1yd-coach', ['ionic', 'restangular', '1yd-coach.controllers', '1yd-coach.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, $state) {
+
+    $rootScope.$on('$ionicView.beforeEnter', function () {
+        $rootScope.hideTabs = false;
+      if($state.current.name === 'tab.coach-detail'){
+        $rootScope.hideTabs = true;
+      }
+    });
+
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -42,36 +50,47 @@ angular.module('1yd-coach', ['ionic', 'restangular', '1yd-coach.controllers', '1
         url: '/home',
         views: {
             'tab-home': {
-                templateUrl: 'templates/tab/tab-home.html',
-                controller: 'HomeCtrl'
+                templateUrl: 'templates/tab/tab-home.html'
             }
         }
     })
 
     .state('tab.coaches', {
-            url: '/coaches',
-            views: {
-                'tab-coaches': {
-                    templateUrl: 'templates/tab/tab-coaches.html',
-                    controller: 'CoachesCtrl'
-                }
+        url: '/coaches',
+        views: {
+            'tab-coach': {
+                templateUrl: 'templates/tab/tab-coaches.html',
+                controller: 'CoachListCtrl'
             }
-        })
-        .state('tab.coach-detail', {
-            url: '/coaches/:coachId',
-            views: {
-                'tab-coaches': {
-                    templateUrl: 'templates/coach-detail.html',
-                    controller: 'CoachDetailCtrl'
-                }
-            }
-        })
+        }
+    })
 
-    .state('tab.course', {
-        url: '/course',
+    .state('tab.coach-detail', {
+        url: '/coaches/:coachId',
+        views: {
+            'tab-coach': {
+                templateUrl: 'templates/coach-detail.html',
+                controller: 'CoachDetailCtrl'
+            }
+        }
+    })
+
+    .state('tab.courses', {
+        url: '/courses',
         views: {
             'tab-course': {
-                templateUrl: 'templates/tab/tab-course.html'
+                templateUrl: 'templates/tab/tab-courses.html',
+                controller: 'CourseListCtrl'
+            }
+        }
+    })
+
+    .state('tab.course-detail', {
+        url: '/courses/:courseId',
+        views: {
+            'tab-course': {
+                templateUrl: 'templates/course-detail.html',
+                controller: 'CourseDetailCtrl'
             }
         }
     })

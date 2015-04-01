@@ -7594,6 +7594,9 @@ a.button {
 .fr {
   float: right; }
 
+.pane, .view {
+  background-color: #f3f4f9; }
+
 .slider-pager {
   right: 20px;
   text-align: right; }
@@ -7938,3 +7941,69 @@ a.button {
     display: table; }
   .coach-list .item-avatar .item-content .item-txt:after {
     clear: both; }
+
+.course-list .item {
+  border: 0;
+  margin-bottom: 10px; }
+  .course-list .item .top {
+    padding: 0 15px 15px 85px;
+    position: relative; }
+    .course-list .item .top img {
+      position: absolute;
+      top: 0;
+      left: 15px;
+      width: 50px;
+      height: 50px;
+      border: 3px solid #bfbfbf;
+      border-radius: 50%; }
+    .course-list .item .top h2 {
+      font-size: 14px;
+      font-weight: bold;
+      color: #333; }
+    .course-list .item .top p {
+      font-size: 12px;
+      color: #333;
+      line-height: 1.4; }
+      .course-list .item .top p.time {
+        color: #999; }
+    .course-list .item .top button {
+      background: none;
+      border-radius: 0;
+      width: 70px;
+      height: 25px;
+      text-align: center;
+      font-size: 12px;
+      border: 1px solid #f60;
+      color: #f60;
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      padding: 0; }
+  .course-list .item .bottom {
+    background: url(../img/course-line.png) repeat-x top center;
+    background-size: 5px;
+    padding: 15px 15px 0 30px;
+    position: relative;
+    display: -webkit-box; }
+    .course-list .item .bottom .course-info {
+      width: 60%; }
+      .course-list .item .bottom .course-info p {
+        color: #636363;
+        font-size: 12px; }
+        .course-list .item .bottom .course-info p .icon {
+          display: inline-block;
+          min-width: 16px;
+          text-align: center;
+          margin-right: 5px;
+          color: #cecece; }
+    .course-list .item .bottom .course-price {
+      text-align: right;
+      font-weight: bold;
+      color: #fa0202;
+      font-size: 16px;
+      -webkit-box-flex: 1;
+      box-flex: 1;
+      display: box;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-box-pack: center; }

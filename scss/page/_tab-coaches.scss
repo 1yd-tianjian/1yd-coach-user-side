@@ -1,0 +1,93 @@
+//筛选条
+.filter-bar {
+    background: #e9e8e8;
+    .col {
+        border-right: 1px solid #bfbfbf;
+        line-height: 22px;
+        text-align: center;
+        color: #333;
+        .icon {
+            margin-left: 5px;
+            vertical-align: -1px;
+            color: #bfbfbf;
+        }
+        &:last-child {
+            border: 0;
+        }
+    }
+}
+//教练列表
+.coach-list {
+    .item-avatar {
+        .item-content {
+            padding: 16px 16px 16px 116px;
+            img:first-child {
+                position: absolute;
+                top: 16px;
+  				left: 16px;
+                max-width: 90px;
+                max-height: 90px;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+            }
+            .item-txt{
+                .sex-icon{
+                    float: left;
+                    width: 12px;
+                    height: 12px;
+                    background: url(../img/sex.png) no-repeat;
+                    background-position: 0 0;
+                    background-size: 12px;
+                    margin-right: 5px;
+                    margin-top: 3px;
+                }
+                .sex-female{
+                    background-position: 0 -12px;
+                }
+                h2{
+                    width: 60%;
+                }
+                .location{
+                    font-size: 12px;
+                    vertical-align: middle;
+                    color: #787878; 
+                    .icon{
+                        margin-right: 3px;
+                        color: $public-color;
+                    }
+                }
+                .coach-tag{
+                    margin: 4px 0 8px 0;
+                    em{
+                        border: 1px solid #ffcc89;
+                        color: #ffaa16;
+                        padding: 2px;
+                        font-size: 12px;
+                        border-radius: 2px;
+                    }
+                }
+                .icon-block{
+                    background: #f9f9f9;
+                    border-radius: 5px;
+                    width: 36px;
+                    height: 36px;
+                    text-align: center;
+                    float: left;
+                    margin-right: 10px;
+                    padding-top: 2px;
+                    color: #787878;
+                    .icon{
+                        font-size: 20px;
+                    }
+                    p{
+                        font-size: 10px;
+                        line-height: 1;
+                    }
+                }
+                @include clearfix;
+            }
+            
+        }
+    }
+}
