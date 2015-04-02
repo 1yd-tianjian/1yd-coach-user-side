@@ -1,0 +1,122 @@
+.course-box {
+  .course-banner {
+    position: relative;
+    max-height: 170px;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+    .name {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, .5);
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      p {
+        margin: 0;
+        line-height: 30px;
+        color: #fff;
+      }
+    }
+  }
+  .course-info {
+    margin-bottom: 10px;
+    background: #fff;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 15px;
+    .tag {
+      display: inline-block;
+      width: 25px;
+      height: 15px;
+      border-radius: 3px;
+      line-height: 15px;
+      font-size: 12px;
+      background: $public-color;
+      color: #fff;
+      text-align: center;
+      margin-right: 5px;
+    }
+    .price {
+      color: red;
+      float: right;
+      font-weight: bold;
+    }
+  }
+}
+
+.course-wrapper {
+  padding-bottom: 58px;
+  .course-info-box {
+    margin-bottom: 10px;
+    .course-info-list {
+      li {
+        background: #fff;
+        padding: 12px 15px;
+        font-size: 14px;
+        border-bottom: 1px solid #dcdcdc;
+        position: relative;
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        width: 100%;
+        &:last-child {
+          border: 0;
+        }
+        strong {
+          min-width: 80px;
+          display: block;
+          color: #252525;
+        }
+        span {
+          -webkit-box-flex: 1;
+          -moz-box-flex: 1;
+          box-flex: 1;
+          vertical-align: top;
+          color: #686868;
+          display: block;
+          font-weight: normal;
+        }
+      }
+    }
+    .course-info-detail {
+      background: #fff;
+      padding: 15px;
+      .title {
+        font-size: 15px;
+        color: #252525;
+        text-align: center;
+      }
+      p {
+        color: #686868;
+      }
+    }
+  }
+  .item {
+    border: 0;
+  }
+}
+
+.btn-bar {
+  width: 100%;
+  padding: 9px 0;
+  background: rgba(255, 102, 0, .8);
+  position: fixed;
+  bottom: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  a {
+    background: #fff;
+    width: 140px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: 0;
+    border-radius: 60px;
+    display: block;
+    margin: 0 auto;
+    color: $public-color;
+  }
+}

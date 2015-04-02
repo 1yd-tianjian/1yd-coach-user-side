@@ -33,8 +33,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "layout/tab";
 
 // page
-@import "page/coach-detail";
+@import "page/tab-home";
 @import "page/tab-coaches";
 @import "page/tab-courses";
+@import "page/coach-detail";
+@import "page/course-detail";
 
 

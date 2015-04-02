@@ -11,7 +11,7 @@
         <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-arrow-down-c" on-refresh="doRefresh()">
         </ion-refresher>
         <ion-list class="course-list">
-            <ion-item type="item-text-wrap" ng-repeat="course in courses" type="item-text-wrap" href="#/tab/courses/{{course.id}}">
+            <ion-item ng-repeat="course in courses" href="#/tab/courses/{{course.id}}">
                 <div class="top">
                     <img src="./img/coach-img.jpg" alt="">
                     <h2>散打初级班</h2>

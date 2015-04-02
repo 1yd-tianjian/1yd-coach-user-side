@@ -1,5 +1,81 @@
 <ion-view view-title="课程详情">
   <ion-content>
-    
+    <section class="course-box">
+      <div class="course-banner">
+        <img src="./img/course.jpg">
+        <div class="name">
+          <p>课程名称：散打基础班</p>
+        </div>
+      </div>
+      <div class="course-info">
+        <span class="tag">0/1</span>
+        <span>报名中</span>
+        <span class="price">500元/课时</span>
+      </div>
+    </section>
+    <section class="course-wrapper">
+      <div class="course-info-box">
+        <ul class="course-info-list">
+          <li>
+            <strong>上课时间</strong><span>2015-03-14 09:00~12:00</span>
+          </li>
+          <li>
+            <strong>上课地点</strong><span>杨浦区江湾体育馆</span>
+          </li>
+          <li>
+            <strong>适合客户</strong><span>无基础，想学散打的人群</span>
+          </li>
+        </ul>
+      </div>
+      <div class="course-info-box">
+        <div class="course-info-detail">
+          <h1 class="title">课程特色</h1>
+          <p>羽毛球是一项灵活多变、可快可慢、隔网对抗的运动，既 是奥运会的正式比赛项目，又是老少皆宜、易于掌握的大众体 育项目。</p>
+        </div>
+      </div>
+      <div class="course-info-box">
+        <div class="course-info-detail">
+          <h1 class="title">课程特色</h1>
+          <p>自带运动器材：否</p>
+        </div>
+      </div>
+      <ion-list class="coach-list">
+        <ion-item class="item-avatar" type="item-text-wrap" href="#/tab/coaches/{{coach.id}}">
+          <img src="./img/coach-img.jpg">
+          <div class="item-txt">
+            <i class="sex-icon sex-female"></i>
+            <span class="fr location"><i class="icon ion-ios-location"></i>12.10km</span>
+            <h2>{{coach.name}}</h2>
+          </div>
+          <div class="item-txt">
+            <div class="coach-tag">
+              <em>散打教练</em>
+            </div>
+          </div>
+          <div class="item-txt">
+            <div class="icon-block">
+              <i class="icon ion-heart assertive"></i>
+              <p>已收藏</p>
+            </div>
+            <div class="icon-block">
+              <i class="icon ion-ios-star energized"></i>
+              <p><i class="assertive">4.0</i>分
+              </p>
+            </div>
+            <div class="icon-block">
+              <i class="icon ion-ios-people"></i>
+              <p><i class="assertive">12</i>人</p>
+            </div>
+            <div class="icon-block">
+              <i class="icon ion-ios-chatbubble"></i>
+              <p><i class="assertive">12</i>条</p>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+    </section>
   </ion-content>
+  <div class="btn-bar">
+    <a>立即加入该课程</a>
+  </div>
 </ion-view>
