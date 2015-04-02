@@ -7,21 +7,19 @@ angular.module('1yd-coach.services')
   var courses = [{
     id: 0,
     name: '李增泉',
-    sex:'男',
+    sex: '男',
     lastText: 'You on your way?',
     face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
-  },
-  {
+  }, {
     id: 1,
     name: '李增泉',
-    sex:'男',
+    sex: '男',
     lastText: 'You on your way?',
     face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
-  },
-  {
+  }, {
     id: 2,
     name: '李增泉',
-    sex:'男',
+    sex: '男',
     lastText: 'You on your way?',
     face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
   }];

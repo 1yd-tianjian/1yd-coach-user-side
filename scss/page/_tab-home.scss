@@ -1,7 +1,113 @@
-.home-wrapper{
-	.slider{
-		height: 152px;
-		overflow: hidden;
-		.box
-	}
+.home-view {
+  background: #00A9B2;
+}
+
+.home-wrapper {
+  .home-box {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    .title {
+      font-size: 16px;
+      color: #252525;
+      text-align: left;
+      position: relative;
+      margin-bottom: 15px;
+      b {
+        display: block;
+        width: 3px;
+        height: 17px;
+        border-radius: 3px;
+        background: $public-color;
+        position: absolute;
+        top: 1px;
+      }
+      span {
+        margin-left: 6px;
+      }
+    }
+    .list {
+      width: 100%;
+      .scroll-bar {
+        display: none;
+      }
+      ul {
+        width: 10000px;
+        li {
+          float: left;
+          margin-right: 22px;
+          a {
+            text-decoration: none;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .banner {
+    .slider {
+      .img-box {
+        width: 100%;
+        height: 152px;
+        overflow: hidden;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .common {
+    width: 100%;
+    height: 80px;
+    .col {
+      text-align: center;
+      color: #fff;
+      .icon {
+        font-size: 24px;
+        vertical-align: -12px;
+      }
+      p {
+        margin-top: 5px;
+      }
+    }
+  }
+  .sports {
+    .sport-icon {
+      display: block;
+      width: 50px;
+      height: 50px;
+      background: url(../img/sport-icon.png) no-repeat;
+      background-size: 500%;
+    }
+    .sport-name {
+      font-size: 12px;
+      color: #555;
+      margin-top: 5px;
+      display: block;
+      text-align: center;
+    }
+  }
+  .newest {
+    .list {
+      font-size: 12px;
+      img {
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      .coach-name {
+        font-size: 13px;
+        color: #555;
+        text-align: center;
+        margin: 5px 0 0 0;
+      }
+      .sport-name {
+        display: block;
+        text-align: center;
+        color: $public-color;
+        line-height: 1;
+      }
+    }
+  }
 }

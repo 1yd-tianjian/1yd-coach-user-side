@@ -1,20 +1,150 @@
-<ion-view view-title="首页">
+<ion-view view-title="首页" class="home-view">
   <ion-content>
     <div class="home-wrapper">
-      <ion-slide-box on-slide-changed="slideHasChanged($index)">
-        <ion-slide>
-          <div class="box">
+      <section class="banner">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="true">
+          <ion-slide>
+            <div class="img-box">
+              <img src="./img/banner1.jpg">
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="img-box">
+              <img src="./img/banner2.jpg">
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="img-box">
+              <img src="./img/banner3.jpg">
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </section>
+      <section class="common">
+        <div class="row">
+          <div class="col">
+            <i class="icon ion-fireball"></i>
+            <p>热门课程</p>
           </div>
-        </ion-slide>
-        <ion-slide>
-          <div class="box">
+          <div class="col">
+            <i class="icon ion-speakerphone"></i>
+            <p>我要教课</p>
           </div>
-        </ion-slide>
-        <ion-slide>
-          <div class="box">
+          <div class="col">
+            <i class="icon ion-ios-heart"></i>
+            <p>我的收藏</p>
           </div>
-        </ion-slide>
-      </ion-slide-box>
+        </div>
+      </section>
+      <section class="sports home-box">
+        <h1 class="title">
+          <b></b>
+          <span>课程分类</span>
+        </h1>
+        <div class="list ">
+          <ion-scroll direction="x">
+            <ul>
+              <li>
+                <a href="">
+                  <span class="sport-icon yumaoqiu-icon"></span>
+                  <em class="sport-name">羽毛球</em>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="sport-icon yumaoqiu-icon"></span>
+                  <em class="sport-name">羽毛球</em>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="sport-icon yumaoqiu-icon"></span>
+                  <em class="sport-name">羽毛球</em>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="sport-icon yumaoqiu-icon"></span>
+                  <em class="sport-name">羽毛球</em>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="sport-icon yumaoqiu-icon"></span>
+                  <em class="sport-name">羽毛球</em>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="sport-icon yumaoqiu-icon"></span>
+                  <em class="sport-name">羽毛球</em>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="sport-icon yumaoqiu-icon"></span>
+                  <em class="sport-name">羽毛球</em>
+                </a>
+              </li>
+            </ul>
+          </ion-scroll>
+        </div>
+      </section>
+      <section class="newest home-box">
+        <h1 class="title">
+          <b></b>
+          <span>新到教练</span>
+        </h1>
+        <div class="list">
+          <ion-scroll direction="x">
+            <ul>
+              <li>
+                <a href="">
+                  <img src="./img/coach-img.jpg">
+                  <p class="coach-name">张全蛋</p>
+                  <span class="sport-name">羽毛球</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/coach-img.jpg">
+                  <p class="coach-name">张全蛋</p>
+                  <span class="sport-name">羽毛球</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/coach-img.jpg">
+                  <p class="coach-name">张全蛋</p>
+                  <span class="sport-name">羽毛球</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/coach-img.jpg">
+                  <p class="coach-name">张全蛋</p>
+                  <span class="sport-name">羽毛球</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/coach-img.jpg">
+                  <p class="coach-name">张全蛋</p>
+                  <span class="sport-name">羽毛球</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/coach-img.jpg">
+                  <p class="coach-name">张全蛋</p>
+                  <span class="sport-name">羽毛球</span>
+                </a>
+              </li>
+            </ul>
+
+          </ion-scroll>
+        </div>
+      </section>
     </div>
   </ion-content>
 </ion-view>

@@ -4,26 +4,20 @@ Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top tabs-stable" ng-class="{'tabs-item-hide': hideTabs}">
-
   <!-- 首页 Tab -->
   <ion-tab title="首页" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/home">
     <ion-nav-view name="tab-home"></ion-nav-view>
   </ion-tab>
-
   <!-- 教练 Tab -->
   <ion-tab title="教练" icon-off="ion-ios-stopwatch-outline" icon-on="ion-ios-stopwatch" href="#/tab/coaches">
     <ion-nav-view name="tab-coach"></ion-nav-view>
   </ion-tab>
-
   <!-- 课程 Tab -->
   <ion-tab title="课程" icon-off="ion-ios-calendar-outline" icon-on="ion-ios-calendar" href="#/tab/courses">
     <ion-nav-view name="tab-course"></ion-nav-view>
   </ion-tab>
-
   <!-- 我的 Tab -->
   <ion-tab title="我的" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/tab/mine">
     <ion-nav-view name="tab-mine"></ion-nav-view>
   </ion-tab>
-
-
 </ion-tabs>

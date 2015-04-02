@@ -1,37 +1,37 @@
 <ion-view view-title="课程">
-    <div class="bar bar-subheader filter-bar row">
-        <div class="col" ng-click="selectCate($event)">运动项目<i class="icon ion-chevron-down"></i>
-        </div>
-        <div class="col">授课方式<i class="icon ion-chevron-down"></i>
-        </div>
-        <div class="col">上课地点<i class="icon ion-chevron-down"></i>
-        </div>
+  <div class="bar bar-subheader filter-bar row">
+    <div class="col" ng-click="selectCate($event)">运动项目<i class="icon ion-chevron-down"></i>
     </div>
-    <ion-content class="has-subheader">
-        <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-arrow-down-c" on-refresh="doRefresh()">
-        </ion-refresher>
-        <ion-list class="course-list">
-            <ion-item ng-repeat="course in courses" href="#/tab/courses/{{course.id}}">
-                <div class="top">
-                    <img src="./img/coach-img.jpg" alt="">
-                    <h2>散打初级班</h2>
-                    <p class="time">18:00~19:00</p>
-                    <p>0/1 人报名</p>
-                    <button>课程详情</button>
-                </div>
-                <div class="bottom">
-                    <div class="course-info">
-                        <p><i class="icon ion-ios-person"></i>授课教练：李增全</p>
-                        <p><i class="icon ion-ios-people"></i>教学模式：一对一</p>
-                        <p><i class="icon ion-ios-location"></i>五角场/大学路</p>
-                    </div>
-                    <div class="course-price">
-                        500元/课时
-                    </div>
-                </div>
-            </ion-item>
-        </ion-list>
-        <ion-infinite-scroll on-infinite="loadMore()" distance="5%">
-        </ion-infinite-scroll>
-    </ion-content>
+    <div class="col">授课方式<i class="icon ion-chevron-down"></i>
+    </div>
+    <div class="col">上课地点<i class="icon ion-chevron-down"></i>
+    </div>
+  </div>
+  <ion-content class="has-subheader">
+    <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-arrow-down-c" on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list class="course-list">
+      <ion-item ng-repeat="course in courses" href="#/tab/courses/{{course.id}}">
+        <div class="top">
+          <img src="./img/coach-img.jpg" alt="">
+          <h2>散打初级班</h2>
+          <p class="time">18:00~19:00</p>
+          <p>0/1 人报名</p>
+          <button>课程详情</button>
+        </div>
+        <div class="bottom">
+          <div class="course-info">
+            <p><i class="icon ion-ios-person"></i>授课教练：李增全</p>
+            <p><i class="icon ion-ios-people"></i>教学模式：一对一</p>
+            <p><i class="icon ion-ios-location"></i>五角场/大学路</p>
+          </div>
+          <div class="course-price">
+            500元/课时
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="5%">
+    </ion-infinite-scroll>
+  </ion-content>
 </ion-view>

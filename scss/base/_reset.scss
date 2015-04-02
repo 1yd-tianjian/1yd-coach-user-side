@@ -1,18 +1,22 @@
-.pane, .view {
-    background-color: #f3f4f9;
+.pane,
+.view {
+  background-color: #f3f4f9;
 }
+
 .slider-pager {
-    right: 20px;
-    text-align: right;
-    .slider-pager-page {
-        display: inline-block;
-        margin: 0px 3px;
-        width: 15px;
-        color: #fff;
-        text-decoration: none;
-        opacity: 1;
-    }
-    .slider-pager-page.active {
-        color: $public-color;
-    }
+  bottom: 10px;
+  right: 10px;
+  text-align: right;
+  .slider-pager-page {
+    font-size: 10px;
+    display: inline-block;
+    margin: 0;
+    width: 15px;
+    color: #fff;
+    text-decoration: none;
+    opacity: .2;
+  }
+  .slider-pager-page.active {
+    opacity: 1;
+  }
 }
