@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('1yd-coach.controllers')
 
 .controller('CoachListCtrl', function($scope, $ionicPopover, Coaches) {
@@ -17,7 +19,7 @@ angular.module('1yd-coach.controllers')
   $scope.coaches = Coaches.all();
   $scope.remove = function(coach) {
     Coaches.remove(coach);
-  }
+  };
 })
 
 

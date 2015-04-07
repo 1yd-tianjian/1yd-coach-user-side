@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('1yd-coach.controllers')
 
 .controller('CourseListCtrl', function($scope, $ionicPopover, Courses) {
@@ -17,7 +19,7 @@ angular.module('1yd-coach.controllers')
   $scope.courses = Courses.all();
   $scope.remove = function(course) {
     Courses.remove(course);
-  }
+  };
 })
 
 .controller('CourseDetailCtrl', function($scope, $stateParams, $ionicNavBarDelegate, $ionicHistory, Courses) {

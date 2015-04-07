@@ -1,3 +1,5 @@
+'use strict';
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -7,7 +9,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('1yd-coach', ['ionic', 'restangular', '1yd-coach.controllers', '1yd-coach.services'])
 
-.run(function($ionicPlatform, $rootScope, $state) {
+.run(function($ionicPlatform, $rootScope, $state, window) {
 
   $rootScope.$on('$ionicView.beforeEnter', function() {
     $rootScope.hideTabs = false;
@@ -39,9 +41,9 @@ angular.module('1yd-coach', ['ionic', 'restangular', '1yd-coach.controllers', '1
 
   // setup an abstract state for the tabs directive
     .state('tab', {
-    url: "/tab",
+    url: '/tab',
     abstract: true,
-    templateUrl: "templates/tab/tabs.html"
+    templateUrl: 'templates/tab/tabs.html'
   })
 
   // Each tab has its own nav history stack:
