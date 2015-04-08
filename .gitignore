@@ -8,5 +8,5 @@ node_modules/
 bower_components/
 platforms/
 plugins/
-dist
+dist/
 npm-debug.log

@@ -8,7 +8,7 @@ angular.module('1yd-coach')
   // Some fake testing data
   var coaches = [{
     id: 0,
-    name: '李增泉',
+    name: '李增',
     sex: '男',
     lastText: 'You on your way?',
     face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
