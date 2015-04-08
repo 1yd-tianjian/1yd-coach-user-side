@@ -1,17 +1,17 @@
 'use strict';
 
-var gulp           = require('gulp');
-var browserSync    = require('browser-sync');
+var gulp = require('gulp');
+var browserSync = require('browser-sync');
 var browserSyncSpa = require('browser-sync-spa');
-var util           = require('util');
-var middleware     = require('./proxy');
 
+var util = require('util');
+
+var middleware = require('./proxy');
 
 module.exports = function(options) {
 
   function browserSyncInit(baseDir, browser) {
     browser = browser === undefined ? 'default' : browser;
-
 
     var routes = null;
     if(baseDir === options.src || (util.isArray(baseDir) && baseDir.indexOf(options.src) !== -1)) {
@@ -32,8 +32,7 @@ module.exports = function(options) {
     browserSync.instance = browserSync.init({
       startPath: '/',
       server: server,
-      browser: browser,
-      notify: false
+      browser: browser
     });
   }
 

@@ -13,7 +13,8 @@ module.exports = function(options) {
     gulp.watch([options.src + '/*.html', 'bower.json'], ['inject']);
 
     gulp.watch([
-      'scss/**/*.scss'
+      options.src + '/{app,components}/**/*.css',
+      options.src + '/{app,components}/**/*.scss'
     ], function(event) {
       if(isOnlyChange(event)) {
         gulp.start('styles');
@@ -22,7 +23,7 @@ module.exports = function(options) {
       }
     });
 
-    gulp.watch(options.src + '/js/**/*.js', function(event) {
+    gulp.watch(options.src + '/{app,components}/**/*.js', function(event) {
       if(isOnlyChange(event)) {
         gulp.start('scripts');
       } else {
@@ -30,7 +31,7 @@ module.exports = function(options) {
       }
     });
 
-    gulp.watch(options.src + '/**/*.html', function(event) {
+    gulp.watch(options.src + '/{app,components}/**/*.html', function(event) {
       browserSync.reload(event.path);
     });
   });

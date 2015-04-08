@@ -5,7 +5,7 @@ var gutil = require('gulp-util');
 var wrench = require('wrench');
 
 var options = {
-  src: 'www',
+  src: 'src',
   dist: 'dist',
   tmp: '.tmp',
   e2e: 'e2e',

@@ -5,8 +5,6 @@ var browserSync = require('browser-sync');
 
 var $ = require('gulp-load-plugins')();
 
-var wiredep = require('wiredep').stream;
-
 module.exports = function(options) {
   gulp.task('styles', function () {
     var sassOptions = {
@@ -14,14 +12,15 @@ module.exports = function(options) {
     };
 
     var injectFiles = gulp.src([
-      'scss/**/*.scss',
-      '!' + 'scss/index.scss',
-      '!' + 'scss/vendor.scss'
+      options.src + '/{app,components}/**/*.scss',
+      '!' + options.src + '/app/index.scss',
+      '!' + options.src + '/app/vendor.scss'
     ], { read: false });
 
     var injectOptions = {
       transform: function(filePath) {
-        filePath = filePath.replace('scss/', '');
+        filePath = filePath.replace(options.src + '/app/', '');
+        filePath = filePath.replace(options.src + '/components/', '../components/');
         return '@import \'' + filePath + '\';';
       },
       starttag: '// injector',
@@ -30,23 +29,19 @@ module.exports = function(options) {
     };
 
     var indexFilter = $.filter('index.scss');
-    var vendorFilter = $.filter('vendor.scss');
 
     return gulp.src([
-      'scss/index.scss',
-      'scss/vendor.scss'
+      options.src + '/app/index.scss',
+      options.src + '/app/vendor.scss'
     ])
-      .pipe(indexFilter)
-      .pipe($.inject(injectFiles, injectOptions))
-      .pipe(indexFilter.restore())
-      .pipe(vendorFilter)
-      .pipe(wiredep(options.wiredep))
-      .pipe(vendorFilter.restore())
-      .pipe($.sourcemaps.init())
-      .pipe($.sass(sassOptions)).on('error', options.errorHandler('Sass'))
-      .pipe($.autoprefixer()).on('error', options.errorHandler('Autoprefixer'))
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest(options.tmp + '/serve/css/'))
-      .pipe(browserSync.reload({ stream: true }));
+    .pipe(indexFilter)
+    .pipe($.inject(injectFiles, injectOptions))
+    .pipe(indexFilter.restore())
+    .pipe($.sourcemaps.init())
+    .pipe($.sass(sassOptions)).on('error', options.errorHandler('Sass'))
+    .pipe($.autoprefixer()).on('error', options.errorHandler('Autoprefixer'))
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest(options.tmp + '/serve/app/'))
+    .pipe(browserSync.reload({ stream: true }));
   });
 };

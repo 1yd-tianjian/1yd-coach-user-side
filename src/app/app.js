@@ -43,7 +43,7 @@ angular.module('1yd-coach', ['ionic', 'restangular'])
     .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tab/tabs.html'
+    templateUrl: 'components/tab/tabs.html'
   })
 
   // Each tab has its own nav history stack:
@@ -52,7 +52,7 @@ angular.module('1yd-coach', ['ionic', 'restangular'])
     url: '/home',
     views: {
       'tab-home': {
-        templateUrl: 'templates/tab/tab-home.html'
+        templateUrl: 'app/home/tab-home.html'
       }
     }
   })
@@ -61,7 +61,7 @@ angular.module('1yd-coach', ['ionic', 'restangular'])
     url: '/coaches',
     views: {
       'tab-coach': {
-        templateUrl: 'templates/tab/tab-coaches.html',
+        templateUrl: 'app/coach/tab-coaches.html',
         controller: 'CoachListCtrl'
       }
     }
@@ -71,7 +71,7 @@ angular.module('1yd-coach', ['ionic', 'restangular'])
     url: '/coaches/:coachId',
     views: {
       'tab-coach': {
-        templateUrl: 'templates/coach-detail.html',
+        templateUrl: 'app/coach/coach-detail.html',
         controller: 'CoachDetailCtrl'
       }
     }
@@ -81,7 +81,7 @@ angular.module('1yd-coach', ['ionic', 'restangular'])
     url: '/courses',
     views: {
       'tab-course': {
-        templateUrl: 'templates/tab/tab-courses.html',
+        templateUrl: 'app/course/tab-courses.html',
         controller: 'CourseListCtrl'
       }
     }
@@ -91,7 +91,7 @@ angular.module('1yd-coach', ['ionic', 'restangular'])
     url: '/courses/:courseId',
     views: {
       'tab-course': {
-        templateUrl: 'templates/course-detail.html',
+        templateUrl: 'app/course/course-detail.html',
         controller: 'CourseDetailCtrl'
       }
     }
@@ -101,7 +101,7 @@ angular.module('1yd-coach', ['ionic', 'restangular'])
     url: '/mine',
     views: {
       'tab-mine': {
-        templateUrl: 'templates/tab/tab-mine.html'
+        templateUrl: 'app/mine/tab-mine.html'
       }
     }
   })

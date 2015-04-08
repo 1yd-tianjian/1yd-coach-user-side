@@ -6,7 +6,7 @@
     font-style: italic;
   }
   .star-icon-dark {
-    background: url(../img/star.png) no-repeat;
+    background: url(../assets/images/star.png) no-repeat;
     background-position: 0 0;
     background-size: 100%;
     width: 14px;
@@ -14,7 +14,7 @@
     display: inline-block;
   }
   .star-icon-light {
-    background: url(../img/star.png) no-repeat;
+    background: url(../assets/images/star.png) no-repeat;
     background-position: 0 -14px;
     background-size: 100%;
     width: 14px;
@@ -24,7 +24,7 @@
 }
 
 .coach-box {
-  background: url(../img/coach-bg.jpg) no-repeat;
+  background: url(../assets/images/coach-bg.jpg) no-repeat;
   background-size: 100%;
   position: relative;
   .coach-info {
@@ -48,7 +48,7 @@
           float: left;
           width: 12px;
           height: 12px;
-          background: url(../img/sex.png) no-repeat;
+          background: url(../assets/images/sex.png) no-repeat;
           background-position: 0 0;
           background-size: 12px;
           margin-top: 2px;
@@ -292,7 +292,7 @@
           top: 0;
           bottom: 0;
           left: 17px;
-          background: url(../img/course-icon.png) no-repeat;
+          background: url(../assets/images/course-icon.png) no-repeat;
           background-size: 100%;
           width: 16px;
           height: auto;
