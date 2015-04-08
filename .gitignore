@@ -3,6 +3,7 @@
 
 .DS_Store
 .idea/
+.tmp/
 node_modules/
 bower_components/
 platforms/

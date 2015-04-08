@@ -7,9 +7,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('1yd-coach', ['ionic', 'restangular', '1yd-coach.controllers', '1yd-coach.services'])
+angular.module('1yd-coach', ['ionic', 'restangular'])
 
-.run(function($ionicPlatform, $rootScope, $state, window) {
+.run(function($ionicPlatform, $rootScope, $state) {
 
   $rootScope.$on('$ionicView.beforeEnter', function() {
     $rootScope.hideTabs = false;

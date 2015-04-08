@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('1yd-coach.services')
+angular.module('1yd-coach')
 
 .factory('Courses', function() {
   // Might use a resource here that returns a JSON array

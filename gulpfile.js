@@ -14,9 +14,6 @@ var options = {
       gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
       this.emit('end');
     };
-  },
-  wiredep: {
-    directory: 'bower_components'
   }
 };
 

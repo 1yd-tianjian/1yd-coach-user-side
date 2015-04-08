@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('1yd-coach.controllers')
+angular.module('1yd-coach')
 
 .controller('CourseListCtrl', function($scope, $ionicPopover, Courses) {
 

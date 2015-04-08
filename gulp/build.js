@@ -9,8 +9,8 @@ var $ = require('gulp-load-plugins')({
 module.exports = function(options) {
   gulp.task('partials', function () {
     return gulp.src([
-      options.src + '/app/**/*.html',
-      options.tmp + '/serve/app/**/*.html'
+      options.src + '/**/**/*.html',
+      options.tmp + '/serve/**/**/*.html'
     ])
       .pipe($.minifyHtml({
         empty: true,
@@ -18,7 +18,7 @@ module.exports = function(options) {
         quotes: true
       }))
       .pipe($.angularTemplatecache('templateCacheHtml.js', {
-        module: 'demo',
+        module: '1yd-coach',
         root: 'app'
       }))
       .pipe(gulp.dest(options.tmp + '/partials/'));
@@ -46,7 +46,7 @@ module.exports = function(options) {
       .pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', options.errorHandler('Uglify'))
       .pipe(jsFilter.restore())
       .pipe(cssFilter)
-      .pipe($.replace('../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/', '../fonts/'))
+      .pipe($.replace('../bower_components/ionic/scss/ionic', '../bower_components/ionic/fonts'))
       .pipe($.csso())
       .pipe(cssFilter.restore())
       .pipe(assets.restore())
