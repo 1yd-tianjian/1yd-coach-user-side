@@ -43,7 +43,7 @@ angular.module('1yd-coach', ['ionic', 'restangular'])
     .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'components/tab/tabs.html'
+    templateUrl: 'app/components/tab/tabs.html'
   })
 
   // Each tab has its own nav history stack:

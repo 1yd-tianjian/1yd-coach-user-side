@@ -18,8 +18,7 @@ module.exports = function(options) {
         quotes: true
       }))
       .pipe($.angularTemplatecache('templateCacheHtml.js', {
-        module: '1yd-coach',
-        root: 'app'
+        module: '1yd-coach'
       }))
       .pipe(gulp.dest(options.tmp + '/partials/'));
   });
