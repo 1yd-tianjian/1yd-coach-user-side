@@ -7,7 +7,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('1yd-coach', ['ionic', 'restangular'])
+angular.module('1yd-coach', ['ionic', 'restangular', 'ngAnimate', 'angular-loading-bar', 'toastr'])
+
+
 
 .run(function($ionicPlatform, $rootScope, $state) {
 
@@ -30,6 +32,48 @@ angular.module('1yd-coach', ['ionic', 'restangular'])
     }
   });
 })
+
+/**
+ * angular-toast
+ * toastr.iconClasses('Hello world!')
+ */
+.config(function(toastrConfig) {
+  angular.extend(toastrConfig, {
+    allowHtml: false,
+    closeButton: false,
+    closeHtml: '<button>&times;</button>',
+    containerId: 'toast-container',
+    extendedTimeOut: 1000,
+    iconClasses: {
+      error: 'toast-error',
+      info: 'toast-info',
+      success: 'toast-success',
+      warning: 'toast-warning'
+    },
+    maxOpened: 0,
+    messageClass: 'toast-message',
+    newestOnTop: true,
+    onHidden: null,
+    onShown: null,
+    positionClass: 'toast-bottom-center',
+    preventDuplicates: false,
+    progressBar: false,
+    tapToDismiss: true,
+    target: 'body',
+    templates: {
+      toast: 'directives/toast/toast.html',
+      progressbar: 'directives/progressbar/progressbar.html'
+    },
+    timeOut: 500,
+    titleClass: 'toast-title',
+    toastClass: 'toast'
+  });
+})
+
+.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+  cfpLoadingBarProvider.includeSpinner = false;
+  cfpLoadingBarProvider.includeBar = true;
+}])
 
 .config(function($stateProvider, $urlRouterProvider, RestangularProvider) {
 
@@ -101,7 +145,8 @@ angular.module('1yd-coach', ['ionic', 'restangular'])
     url: '/mine',
     views: {
       'tab-mine': {
-        templateUrl: 'app/mine/tab-mine.html'
+        templateUrl: 'app/mine/tab-mine.html',
+        controller: 'MineCtrl'
       }
     }
   })
