@@ -1,5 +1,4 @@
 $public-color: #ff6600;
-
 @mixin clearfix {
   &:before, &:after {
     content: " ";
@@ -12,6 +11,76 @@ $public-color: #ff6600;
 
 .fr {
   float: right;
+}
+
+.pane,
+.view {
+  background: #f3f4f9;
+}
+
+.slider-pager {
+  bottom: 10px;
+  right: 10px;
+  text-align: right;
+  .slider-pager-page {
+    font-size: 10px;
+    display: inline-block;
+    margin: 0;
+    width: 15px;
+    color: #fff;
+    text-decoration: none;
+    opacity: .2;
+  }
+  .slider-pager-page.active {
+    opacity: 1;
+  }
+}
+
+.bar.bar-light {
+  .title {
+    color: #f60;
+  }
+  .button.button-clear {
+    color: #f60;
+  }
+}
+
+.tab-item {
+  color: #929292;
+}
+
+.tabs-icon-top > .tabs .tab-item {
+  opacity: 1;
+}
+
+.tab-item.tab-item-active {
+  color: #f60;
+}
+
+.tabs-stable > .tabs,
+.tabs.tabs-stable {
+  color: #f60;
+}
+
+.tabs-top.tabs-striped {
+  .tab-item.tab-item-active {
+    color: #f60;
+  }
+}
+
+.tabs-striped.tabs-stable {
+  .tab-item {
+    color: #929292;
+  }
+  .tab-item.tab-item-active {
+    border-color: #f60;
+  }
+  .tab-item.active {
+    border-color: #929292;
+  }
+  .tab-item.activated {
+    border: none;
+  }
 }
 
 // injector
