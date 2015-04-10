@@ -83,5 +83,31 @@ $public-color: #ff6600;
   }
 }
 
+//列表动画
+.repeat-animation {
+    position: relative;
+    transition: 0.5s ease all;
+    &.ng-enter-stagger {
+      transition-delay: .3s;
+      transition-duration: 0s;
+    }
+    &.ng-enter {
+      left: -100%;
+      opacity: 0;
+    }
+    &.ng-enter.ng-enter-active {
+      left: 0;
+      opacity: 1;
+    }
+    &.ng-leave {
+      left: 0;
+      opacity: 1;
+    }
+    &.ng-leave.ng-leave-active {
+      left: -100%;
+      opacity: 0;
+    }
+  }
+
 // injector
 // endinjector

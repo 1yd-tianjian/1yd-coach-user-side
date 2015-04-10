@@ -7,7 +7,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('1yd-coach', ['ionic', 'restangular', 'ngAnimate', 'angular-loading-bar', 'toastr'])
+angular.module('1yd-coach', ['ionic', 'restangular', 'ngAnimate', 'pasvaz.bindonce', 'angular-loading-bar', 'toastr'])
 
 
 
