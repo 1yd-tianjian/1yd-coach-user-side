@@ -1,71 +1,71 @@
 <ion-view view-title="{{coach.name}}">
-  <ion-content>
-    <section class="coach-box">
-      <ion-slide-box class="clearfix" on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="false">
-        <ion-slide>
-          <div class="coach-info">
-            <div class="left-area">
-              <img src="assets/images/coach-img.jpg" alt="">
-              <h3><i class="sex-icon"></i>李增全</h3>
-              <p>散打教练</p>
+    <ion-content>
+        <section class="coach-box">
+            <ion-slide-box class="clearfix" on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="false">
+                <ion-slide>
+                    <div class="coach-info">
+                        <div class="left-area">
+                            <img src="assets/images/coach-img.jpg" alt="">
+                            <h3><i class="sex-icon"></i>李增全</h3>
+                            <p>散打教练</p>
+                        </div>
+                        <div class="right-area">
+                            <div class="star">
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-dark"></span>
+                                <span class="star-icon-dark"></span>
+                                <span class="star-icon-dark"></span>
+                                <span class="star-icon-dark"></span>
+                                <em class="score">5.0</em>
+                            </div>
+                            <div class="coach-date">
+                                <ul>
+                                    <li>昵称<span>全全</span>
+                                    </li>
+                                    <li>星座<span>巨蟹座</span>
+                                    </li>
+                                    <li>教练类别<span>私教</span>
+                                    </li>
+                                    <li>教学地点<span>五角场/大学路</span>
+                                    </li>
+                                    <li>注册时间<span>2014年11月</span>
+                                    </li>
+                                    <li>我的标签<em>真性情</em><em>阳光</em><em>善良</em>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="coach-number">
+                                <i class="icon ion-ios-people"></i>
+                                <p><i class="assertive">12</i>人</p>
+                            </div>
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="coach-photos">
+                        <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
+                        </div>
+                        <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
+                        </div>
+                        <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
+                        </div>
+                        <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
+                        </div>
+                        <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
+                        </div>
+                        <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+            <div class="row coach-tab">
+                <div class="col" ng-click="setTab('tab1')" ng-class="{ 'active': currentTab == 'tab1' }">教练简介</div>
+                <div class="col" ng-click="setTab('tab2')" ng-class="{ 'active': currentTab == 'tab2' }">已开课程</div>
+                <div class="col" ng-click="setTab('tab3')" ng-class="{ 'active': currentTab == 'tab3' }">教练评价</div>
             </div>
-            <div class="right-area">
-              <div class="star">
-                <span class="star-icon-light"></span>
-                <span class="star-icon-dark"></span>
-                <span class="star-icon-dark"></span>
-                <span class="star-icon-dark"></span>
-                <span class="star-icon-dark"></span>
-                <em class="score">5.0</em>
-              </div>
-              <div class="coach-date">
-                <ul>
-                  <li>昵称<span>全全</span>
-                  </li>
-                  <li>星座<span>巨蟹座</span>
-                  </li>
-                  <li>教练类别<span>私教</span>
-                  </li>
-                  <li>教学地点<span>五角场/大学路</span>
-                  </li>
-                  <li>注册时间<span>2014年11月</span>
-                  </li>
-                  <li>我的标签<em>真性情</em><em>阳光</em><em>善良</em>
-                  </li>
-                </ul>
-              </div>
-              <div class="coach-number">
-                <i class="icon ion-ios-people"></i>
-                <p><i class="assertive">12</i>人</p>
-              </div>
-            </div>
-          </div>
-        </ion-slide>
-        <ion-slide>
-          <div class="coach-photos">
-            <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
-            </div>
-            <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
-            </div>
-            <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
-            </div>
-            <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
-            </div>
-            <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
-            </div>
-            <div class="photo-item"><img src="assets/images/coach-img.jpg" alt="">
-            </div>
-          </div>
-        </ion-slide>
-      </ion-slide-box>
-      <div class="row coach-tab">
-        <div class="col active">教练简介</div>
-        <div class="col">已开课程</div>
-        <div class="col">教练评价</div>
-      </div>
-    </section>
-    <section class="coach-wrapper">
-      <!-- <div class="coach-about">
+        </section>
+        <section class="coach-wrapper" ng-switch="currentTab">
+            <div class="coach-about" ng-switch-default>
                 <ul>
                     <li class="item">
                         <header>
@@ -129,104 +129,103 @@
                             </a>
                         </div>
                     </li>
-
                 </ul>
-            </div> -->
-      <!-- <div class="coach-evaluate">
-        <header>
-          <h2><i class="icon ion-ios-chatbubble-outline"></i>学员评价(11)</h2>
-        </header>
-        <ion-list>
-          <ion-item>
-            <div class="evaluate-info">
-              <img src="assets/images/coach-img.jpg" alt="">
-              <h2><span class="name">宇宙无敌黑</span><span class="date">2015-01-15 14:35</span></h2>
-              <div class="star">
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-              </div>
-              <p>参与课程：<span>散打初级班</span>
-              </p>
             </div>
-            <div class="evaluate-cont">
-              教练很好，很有耐心，对于我这种菜鸟级的学员帮助很大！ 好评，强烈推荐！
+            <div class="coach-courses" ng-switch-when="tab2">
+                <ion-list class="course-list">
+                    <ion-item>
+                        <div class="top clearfix">
+                            <h2>散打入门</h2>
+                            <span>500元/课时</span>
+                        </div>
+                        <div class="middle">
+                            <p><i class="icon ion-ios-location"></i>五角场/大学路</p>
+                        </div>
+                        <div class="bottom">
+                            <span>授课方式：一对一</span>
+                            <a href="">课程安排</a>
+                        </div>
+                    </ion-item>
+                    <ion-item>
+                        <div class="top clearfix">
+                            <h2>散打入门</h2>
+                            <span>500元/课时</span>
+                        </div>
+                        <div class="middle">
+                            <p><i class="icon ion-ios-location"></i>五角场/大学路</p>
+                        </div>
+                        <div class="bottom">
+                            <span>授课方式：一对一</span>
+                            <a href="">课程安排</a>
+                        </div>
+                    </ion-item>
+                </ion-list>
+                <ion-infinite-scroll on-infinite="loadMore()" distance="5%">
+                </ion-infinite-scroll>
             </div>
-          </ion-item>
-          <ion-item>
-            <div class="evaluate-info">
-              <img src="assets/images/coach-img.jpg" alt="">
-              <h2><span class="name">宇宙无敌黑</span><span class="date">2015-01-15 14:35</span></h2>
-              <div class="star">
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-              </div>
-              <p>参与课程：<span>散打初级班</span>
-              </p>
+            <div class="coach-evaluate" ng-switch-when="tab3">
+                <header>
+                    <h2><i class="icon ion-ios-chatbubble-outline"></i>学员评价(11)</h2>
+                </header>
+                <ion-list>
+                    <ion-item>
+                        <div class="evaluate-info">
+                            <img src="assets/images/coach-img.jpg" alt="">
+                            <h2><span class="name">宇宙无敌黑</span><span class="date">2015-01-15 14:35</span></h2>
+                            <div class="star">
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                            </div>
+                            <p>参与课程：<span>散打初级班</span>
+                            </p>
+                        </div>
+                        <div class="evaluate-cont">
+                            教练很好，很有耐心，对于我这种菜鸟级的学员帮助很大！ 好评，强烈推荐！
+                        </div>
+                    </ion-item>
+                    <ion-item>
+                        <div class="evaluate-info">
+                            <img src="assets/images/coach-img.jpg" alt="">
+                            <h2><span class="name">宇宙无敌黑</span><span class="date">2015-01-15 14:35</span></h2>
+                            <div class="star">
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                            </div>
+                            <p>参与课程：<span>散打初级班</span>
+                            </p>
+                        </div>
+                        <div class="evaluate-cont">
+                            教练很好，很有耐心，对于我这种菜鸟级的学员帮助很大！ 好评，强烈推荐！
+                        </div>
+                    </ion-item>
+                    <ion-item>
+                        <div class="evaluate-info">
+                            <img src="assets/images/coach-img.jpg" alt="">
+                            <h2><span class="name">宇宙无敌黑</span><span class="date">2015-01-15 14:35</span></h2>
+                            <div class="star">
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                                <span class="star-icon-light"></span>
+                            </div>
+                            <p>参与课程：<span>散打初级班</span>
+                            </p>
+                        </div>
+                        <div class="evaluate-cont">
+                            教练很好，很有耐心，对于我这种菜鸟级的学员帮助很大！ 好评，强烈推荐！
+                        </div>
+                    </ion-item>
+                </ion-list>
+                <ion-infinite-scroll on-infinite="loadMore()" distance="5%">
+                </ion-infinite-scroll>
             </div>
-            <div class="evaluate-cont">
-              教练很好，很有耐心，对于我这种菜鸟级的学员帮助很大！ 好评，强烈推荐！
-            </div>
-          </ion-item>
-          <ion-item>
-            <div class="evaluate-info">
-              <img src="assets/images/coach-img.jpg" alt="">
-              <h2><span class="name">宇宙无敌黑</span><span class="date">2015-01-15 14:35</span></h2>
-              <div class="star">
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-              </div>
-              <p>参与课程：<span>散打初级班</span>
-              </p>
-            </div>
-            <div class="evaluate-cont">
-              教练很好，很有耐心，对于我这种菜鸟级的学员帮助很大！ 好评，强烈推荐！
-            </div>
-          </ion-item>
-        </ion-list>
-        <ion-infinite-scroll on-infinite="loadMore()" distance="5%">
-        </ion-infinite-scroll>
-      </div> -->
-      <div class="coach-courses">
-        <ion-list class="course-list">
-          <ion-item>
-            <div class="top clearfix">
-              <h2>散打入门</h2>
-              <span>500元/课时</span>
-            </div>
-            <div class="middle">
-              <p><i class="icon ion-ios-location"></i>五角场/大学路</p>
-            </div>
-            <div class="bottom">
-              <span>授课方式：一对一</span>
-              <a href="">课程安排</a>
-            </div>
-          </ion-item>
-          <ion-item>
-            <div class="top clearfix">
-              <h2>散打入门</h2>
-              <span>500元/课时</span>
-            </div>
-            <div class="middle">
-              <p><i class="icon ion-ios-location"></i>五角场/大学路</p>
-            </div>
-            <div class="bottom">
-              <span>授课方式：一对一</span>
-              <a href="">课程安排</a>
-            </div>
-          </ion-item>
-        </ion-list>
-        <ion-infinite-scroll on-infinite="loadMore()" distance="5%">
-        </ion-infinite-scroll>
-      </div>
-    </section>
-  </ion-content>
+        </section>
+    </ion-content>
 </ion-view>

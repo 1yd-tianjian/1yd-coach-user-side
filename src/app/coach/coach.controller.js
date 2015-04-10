@@ -27,4 +27,10 @@ angular.module('1yd-coach')
 .controller('CoachDetailCtrl', function($scope, $stateParams, $ionicNavBarDelegate, $ionicHistory, Coaches) {
   $scope.coach = Coaches.get($stateParams.coachId);
 
+  // init tab
+  $scope.currentTab = "tab1";
+  $scope.setTab = function (tab) {
+      $scope.currentTab = tab;
+  };
+
 });
