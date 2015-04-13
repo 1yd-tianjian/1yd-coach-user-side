@@ -1,10 +1,12 @@
 <ion-view view-title="课程">
-  <div class="bar bar-subheader filter-bar row">
-    <div class="col" ng-click="selectCate($event)">运动项目<i class="icon ion-chevron-down"></i>
-    </div>
-    <div class="col">授课方式<i class="icon ion-chevron-down"></i>
-    </div>
-    <div class="col">上课地点<i class="icon ion-chevron-down"></i>
+  <div class="bar bar-subheader filter-bar">
+    <div class="filter-head row">
+      <div class="col" ng-click="setFilter('filter1')">运动项目<i class="icon ion-arrow-down-b"></i>
+      </div>
+      <div class="col" ng-click="setFilter('filter2')">授课方式<i class="icon ion-arrow-down-b"></i>
+      </div>
+      <div class="col" ng-click="setFilter('filter3')">上课地点<i class="icon ion-arrow-down-b"></i>
+      </div>
     </div>
   </div>
   <ion-content class="has-subheader">

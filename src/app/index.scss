@@ -13,6 +13,18 @@ $public-color: #ff6600;
   float: right;
 }
 
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: 8;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 20s opacity linear;
+  transition: 0.1s opacity linear;
+}
+
 .pane,
 .view {
   background: #f3f4f9;
@@ -83,31 +95,44 @@ $public-color: #ff6600;
   }
 }
 
-//列表动画
-.repeat-animation {
-    position: relative;
-    transition: 0.5s ease all;
-    &.ng-enter-stagger {
-      transition-delay: .3s;
-      transition-duration: 0s;
-    }
-    &.ng-enter {
-      left: -100%;
-      opacity: 0;
-    }
-    &.ng-enter.ng-enter-active {
-      left: 0;
-      opacity: 1;
-    }
-    &.ng-leave {
-      left: 0;
-      opacity: 1;
-    }
-    &.ng-leave.ng-leave-active {
-      left: -100%;
-      opacity: 0;
+//loadding-bar
+#loading-bar {
+  .bar {
+    padding: 0;
+    height: 1px;
+    top: 43px;
+    background: #f30;
+    .peg {
+      display: none;
     }
   }
+}
+
+//列表动画
+.repeat-animation {
+  position: relative;
+  transition: 0.5s ease all;
+  &.ng-enter-stagger {
+    transition-delay: .3s;
+    transition-duration: 0s;
+  }
+  &.ng-enter {
+    left: -100%;
+    opacity: 0;
+  }
+  &.ng-enter.ng-enter-active {
+    left: 0;
+    opacity: 1;
+  }
+  &.ng-leave {
+    left: 0;
+    opacity: 1;
+  }
+  &.ng-leave.ng-leave-active {
+    left: -100%;
+    opacity: 0;
+  }
+}
 
 // injector
 // endinjector

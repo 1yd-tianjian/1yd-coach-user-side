@@ -77,10 +77,13 @@ angular.module('1yd-coach', ['ionic', 'restangular', 'ngAnimate', 'pasvaz.bindon
 
 .config(function($stateProvider, $urlRouterProvider, RestangularProvider) {
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/tab/home');
+
+  // RestangularProvider.setBaseUrl('http://192.168.2.133:8081/ROOT/api');
+  // RestangularProvider.setBaseUrl('http://192.168.2.50');
+  RestangularProvider.setBaseUrl('http://api.1yd.me/api/');
+
   $stateProvider
 
   // setup an abstract state for the tabs directive
@@ -149,20 +152,15 @@ angular.module('1yd-coach', ['ionic', 'restangular', 'ngAnimate', 'pasvaz.bindon
         controller: 'MineCtrl'
       }
     }
-  })
+  });
 
   // .state('signIn', {
   //     url: '/login',
   //     templateUrl: 'templates/login.html'
   //     }
   // })
-  ;
+  
 
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
-
-
-  // RestangularProvider.setBaseUrl('http://api-test.1yd.me/api/');
-  RestangularProvider.setBaseUrl('http://api.1yd.me/api/');
+  
 
 });

@@ -1,26 +1,67 @@
 <ion-view view-title="教练">
-  <div class="bar bar-subheader filter-bar row">
-    <div class="col" ng-click="selectCate($event)">运动项目<i class="icon ion-chevron-down"></i>
+  <div class="bar bar-subheader filter-bar">
+    <div class="filter-head row">
+      <div class="col" ng-click="setFilter('filter1')">运动项目<i class="icon ion-arrow-down-b"></i>
+      </div>
+      <div class="col" ng-click="setFilter('filter2')">选择性别<i class="icon ion-arrow-down-b"></i>
+      </div>
+      <div class="col" ng-click="setFilter('filter3')">智能排序<i class="icon ion-arrow-down-b"></i>
+      </div>
     </div>
-    <div class="col">选择性别<i class="icon ion-chevron-down"></i>
-    </div>
-    <div class="col">智能排序<i class="icon ion-chevron-down"></i>
+    <div class="filter-body" ng-switch="currentFilter">
+      <div class="filter-option" ng-switch-when="filter1">
+          <ion-scroll direction="y">
+            <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+              <ul>
+                <li><p>网球</p></li>
+                <li><p>羽毛球</p></li>
+                <li><p>篮球</p></li>
+                <li><p>足球</p></li>
+                <li><p>台球</p></li>
+                <li><p>乒乓球</p></li>
+                <li><p>保龄球</p></li>
+              </ul>
+            </div>
+          </ion-scroll>
+      </div>
+      <div class="filter-option" ng-switch-when="filter2">
+          <ion-scroll direction="y">
+            <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+              <ul>
+                <li><p>全部</p></li>
+                <li><p>男</p></li>
+                <li><p>女</p></li>
+              </ul>
+            </div>
+          </ion-scroll>
+      </div>
+      <div class="filter-option" ng-switch-when="filter3">
+          <ion-scroll direction="y">
+            <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+              <ul>
+                <li><p>智能排序</p></li>
+                <li><p>按距离</p></li>
+              </ul>
+            </div>
+          </ion-scroll>
+      </div>
     </div>
   </div>
   <ion-content class="has-subheader">
+    <div class="mask" ng-show="flag"></div>
     <ion-refresher pulling-text="下拉刷新" pulling-icon="ion-arrow-down-c" on-refresh="doRefresh()">
     </ion-refresher>
     <ion-list class="coach-list">
       <ion-item class="item-avatar repeat-animation" bindonce ng-repeat="coach in coaches" type="item-text-wrap" href="#/tab/coaches/{{coach.id}}">
-        <img src="assets/images/coach-img.jpg">
+        <img src="{{coach.photo}}">
         <div class="item-txt">
-          <i class="sex-icon sex-female"></i>
+          <i class="sex-icon" ng-class="{'sex-female': coach.gender == 'GENDER_WOMAN'}"></i>
           <span class="fr location"><i class="icon ion-ios-location"></i>12.10km</span>
           <h2 bo-bind="coach.name"></h2>
         </div>
         <div class="item-txt">
           <div class="coach-tag">
-            <em>散打教练</em>
+            <em>{{coach.coaching_specialty}}教练</em>
           </div>
         </div>
         <div class="item-txt">

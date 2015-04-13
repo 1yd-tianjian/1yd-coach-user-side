@@ -1,18 +1,47 @@
 //筛选条
 .filter-bar {
-  background: #e9e8e8;
+  background: #fff;
+  padding: 0;
+  border-color: #aaaaaa;
   .col {
-    border-right: 1px solid #bfbfbf;
+    // border-right: 1px solid #aaaaaa;
     line-height: 22px;
     text-align: center;
-    color: #333;
+    color: #9ca2a9;
     .icon {
       margin-left: 5px;
       vertical-align: -1px;
-      color: #bfbfbf;
+      color: #9ca2a9;
     }
     &:last-child {
       border: 0;
+    }
+  }
+}
+
+//筛选内容
+.filter-body {
+  width: 100%;
+  background: #fff;
+  .filter-option {
+    .scroll-view {
+      max-height: 220px;
+      border-top: 1px solid #ddd;
+    }
+    li {
+      padding-left: 15px;
+      p {
+        border-bottom: 1px solid #ededee;
+        height: 44px;
+        line-height: 44px;
+        margin: 0;
+        color: #9ca2a9;
+      }
+      &:last-child {
+        p {
+          border: 0;
+        }
+      }
     }
   }
 }
