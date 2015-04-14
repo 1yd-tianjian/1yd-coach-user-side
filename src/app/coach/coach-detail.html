@@ -1,12 +1,12 @@
-<ion-view view-title="{{coach.name}}">
+<ion-view view-title="教练详情">
   <section class="coach-box">
     <ion-slide-box class="clearfix" on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="false">
       <ion-slide>
         <div class="coach-info">
           <div class="left-area">
-            <img src="assets/images/coach-img.jpg" alt="">
-            <h3><i class="sex-icon"></i>李增全</h3>
-            <p>散打教练</p>
+            <img src="{{coach.photo}}" alt="">
+            <h3><i class="sex-icon" ng-class="{'sex-female': coach.gender == 'GENDER_WOMAN'}"></i>{{coach.name}}</h3>
+            <p>{{coach.coaching_specialty}}教练</p>
           </div>
           <div class="right-area">
             <div class="star">

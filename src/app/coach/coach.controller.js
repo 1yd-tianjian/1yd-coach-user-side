@@ -5,13 +5,21 @@ angular.module('1yd-coach')
 .controller('CoachListCtrl', function($scope, Coaches) {
 
   //页面初始化
-  $scope.flag = false;
+  var vm = $scope.vm = {
+    mask: false
+  };
 
   //筛选条切换
   $scope.currentFilter = null;
   $scope.setFilter = function(filter) {
     $scope.currentFilter = filter;
-    $scope.flag = true;
+    vm.mask = true;
+  };
+
+  //隐藏遮罩层
+  $scope.hideMask = function() {
+    vm.mask = false;
+    $scope.currentFilter = null;
   };
 
 
@@ -53,17 +61,13 @@ angular.module('1yd-coach')
 
 
 .controller('CoachDetailCtrl', function($scope, $stateParams, $ionicModal, Coaches) {
-  // $scope.coach = Coaches.get($stateParams.coachId);
-  // 
-  // console.log($stateParams.coachId);
 
+  var coachId = $stateParams.coachId;
 
-
-
-  Coaches.oneCoach.get().then(function(res) {
-    console.log(res);
+  //获取单个教练数据
+  Coaches.oneCoach(coachId).get().then(function(res) {
     $scope.coach = res;
-  }, function(err) {
+  },function(err){
     console.log(err);
   });
 
@@ -79,7 +83,7 @@ angular.module('1yd-coach')
     $scope.modal.show();
 
 
-  $scope.closeSchedule = function() {
+    $scope.closeSchedule = function() {
       $scope.modal.hide();
     };
   }

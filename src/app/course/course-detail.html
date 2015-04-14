@@ -4,23 +4,23 @@
       <div class="course-banner">
         <img src="assets/images/course.jpg">
         <div class="name">
-          <p>课程名称：散打基础班</p>
+          <p ng-bind="course.name"></p>
         </div>
       </div>
       <div class="course-info">
         <span class="tag">0/1</span>
         <span>报名中</span>
-        <span class="price">500元/课时</span>
+        <span class="price" ng-bind="course.price | price"></span>
       </div>
     </section>
     <section class="course-wrapper">
       <div class="course-info-box">
         <ul class="course-info-list">
           <li>
-            <strong>上课时间</strong><span>2015-03-14 09:00~12:00</span>
+            <strong>上课时间</strong><span>{{course.start_day | date:'yyyy年MM月dd日'}} {{course.start_time | time}}~{{course.end_time | time}}</span>
           </li>
           <li>
-            <strong>上课地点</strong><span>杨浦区江湾体育馆</span>
+            <strong>上课地点</strong><span ng-bind="course.teaching_venues"></span>
           </li>
           <li>
             <strong>适合客户</strong><span>无基础，想学散打的人群</span>
@@ -41,15 +41,15 @@
       </div>
       <ion-list class="coach-list">
         <ion-item class="item-avatar" type="item-text-wrap" href="#/tab/coaches/{{coach.id}}">
-          <img src="assets/images/coach-img.jpg">
+          <img src="{{course.coach.photo}}">
           <div class="item-txt">
-            <i class="sex-icon sex-female"></i>
+            <i class="sex-icon" ng-class="{'sex-female': course.coach.gender == 'GENDER_WOMAN'}"></i>
             <span class="fr location"><i class="icon ion-ios-location"></i>12.10km</span>
-            <h2>{{coach.name}}</h2>
+            <h2 ng-bind="course.coach.name"></h2>
           </div>
           <div class="item-txt">
             <div class="coach-tag">
-              <em>散打教练</em>
+              <em>{{course.coach.coaching_specialty}}教练</em>
             </div>
           </div>
           <div class="item-txt">

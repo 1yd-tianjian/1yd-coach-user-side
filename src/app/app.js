@@ -1,18 +1,10 @@
 'use strict';
 
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
 angular.module('1yd-coach', ['ionic', 'restangular', 'ngAnimate', 'pasvaz.bindonce', 'angular-loading-bar', 'toastr'])
-
-
 
 .run(function($ionicPlatform, $rootScope, $state) {
 
+  //根据页面控制Tab栏隐藏
   $rootScope.$on('$ionicView.beforeEnter', function() {
     $rootScope.hideTabs = false;
     if ($state.current.name === 'tab.coach-detail' || $state.current.name === 'tab.course-detail') {
@@ -70,19 +62,24 @@ angular.module('1yd-coach', ['ionic', 'restangular', 'ngAnimate', 'pasvaz.bindon
   });
 })
 
+
+/**
+ * loadingBar
+ */
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
   cfpLoadingBarProvider.includeSpinner = false;
   cfpLoadingBarProvider.includeBar = true;
 }])
 
-.config(function($stateProvider, $urlRouterProvider, RestangularProvider) {
+//router
+.config(function($stateProvider, $urlRouterProvider, RestangularProvider, CONFIG) {
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
 
   // RestangularProvider.setBaseUrl('http://192.168.2.133:8081/ROOT/api');
   // RestangularProvider.setBaseUrl('http://192.168.2.50');
-  RestangularProvider.setBaseUrl('http://api.1yd.me/api/');
+  RestangularProvider.setBaseUrl(CONFIG.apiUrl);
 
   $stateProvider
 
@@ -159,8 +156,8 @@ angular.module('1yd-coach', ['ionic', 'restangular', 'ngAnimate', 'pasvaz.bindon
   //     templateUrl: 'templates/login.html'
   //     }
   // })
-  
 
-  
+
+
 
 });

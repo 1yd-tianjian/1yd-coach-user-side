@@ -2,16 +2,36 @@
 .filter-bar {
   background: #fff;
   padding: 0;
-  border-color: #aaaaaa;
+  .filter-head{
+    padding: 0;
+    height: 43px;
+  }
   .col {
     // border-right: 1px solid #aaaaaa;
-    line-height: 22px;
+    line-height: 33px;
     text-align: center;
     color: #9ca2a9;
+    transition: all .2s ease;
+    span {
+      display: inline-block;
+      max-width: 80%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    &.active {
+      color: $public-color;
+    }
     .icon {
+      display: inline-block;
       margin-left: 5px;
-      vertical-align: -1px;
       color: #9ca2a9;
+      transition: all .2s ease;
+      line-height: 1;
+      &.ion-arrow-up-b {
+        color: $public-color;
+      }
     }
     &:last-child {
       border: 0;
@@ -21,7 +41,7 @@
 
 //筛选内容
 .filter-body {
-  width: 100%;
+  position: relative;
   background: #fff;
   .filter-option {
     .scroll-view {
@@ -30,12 +50,19 @@
     }
     li {
       padding-left: 15px;
+      
       p {
         border-bottom: 1px solid #ededee;
         height: 44px;
         line-height: 44px;
         margin: 0;
         color: #9ca2a9;
+      }
+      &.active{
+        p{
+          color: $public-color;
+          border-bottom: 1px solid $public-color;
+        }
       }
       &:last-child {
         p {
