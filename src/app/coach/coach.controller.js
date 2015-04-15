@@ -2,7 +2,7 @@
 
 angular.module('1yd-coach')
 
-.controller('CoachListCtrl', function($scope, Coaches) {
+.controller('CoachListCtrl', function($scope, Coaches, Geolocation) {
 
   //页面初始化
   var vm = $scope.vm = {
@@ -28,6 +28,7 @@ angular.module('1yd-coach')
 
   //刷新列表
   $scope.doRefresh = function() {
+    Geolocation.getLocation();//获取地理位置
     Coaches.allCoaches.getList().then(function(res) {
       $scope.coaches = res;
       $scope.$broadcast('scroll.refreshComplete'); //Stop the ion-refresh from spinning
