@@ -2,11 +2,12 @@
 
 angular.module('1yd-coach')
 
-.controller('CourseListCtrl', function($scope, $stateParams, Courses) {
+.controller('CourseListCtrl', function($scope, $stateParams, courseService) {
 
   //页面初始化
   var vm = $scope.vm = {
-    mask: false
+    mask: false,
+    pageInfo: {}
   };
 
   //筛选条切换
@@ -17,44 +18,76 @@ angular.module('1yd-coach')
   };
 
   //隐藏遮罩层
-  $scope.hideMask = function() {
+  function hideMask() {
     vm.mask = false;
     $scope.currentFilter = null;
   };
+  $scope.hideMask = function() {
+    hideMask();
+  };
 
-  //初始化课程列表
+  //初始化教练列表
   $scope.courses = [];
 
-  //刷新列表
+  var param = {
+    size: 10,
+    page: 0,
+    category_id: null,
+    gender: null
+  };
+
+  /**
+   * 查询教练列表
+   * @param  {[obj]} param [page,size,category_id,gender]
+   * @return {[arr]}       [coachList]
+   */
+  courseService.allCourses(param).then(function(res) {
+    vm.pageInfo = _.assign(vm.pageInfo, res.info);
+    $scope.courses = res;
+  }, function(err) {
+    console.log(err);
+  });
+
+  // 刷新列表
   $scope.doRefresh = function() {
-    Courses.allCourses.getList().then(function(res) {
-      console.log(res);
-      $scope.courses = res;
-      $scope.$broadcast('scroll.refreshComplete'); //Stop the ion-refresh from spinning
-    }, function(err) {
-      console.log(err);
-    });
+    param.page = 0;
+    courseService.allCourses(param).then(function(res) {
+        vm.pageInfo = _.assign(vm.pageInfo, res.info);
+        $scope.courses = res;
+      })
+      .finally(function() {
+        $scope.$broadcast('scroll.refreshComplete'); // Stop the ion-refresher from spinning
+      });
   };
 
-  //进入课程列表，获取课程数据
-  $scope.doRefresh();
-
-  //加载更多
+  // 加载更多
   $scope.loadMore = function() {
-    $scope.$broadcast('scroll.infiniteScrollComplete'); //Stop the ion-infinite from spinning
+    param.page += 1;
+    if (!vm.pageInfo.last) {
+      courseService.allCourses(param).then(function(res) {
+        vm.pageInfo = _.assign(vm.pageInfo, res.info);
+        $scope.courses = $scope.courses.concat(res);
+        $scope.$broadcast('scroll.infiniteScrollComplete'); // Stop the ion-refresher from spinning
+      });
+    };
   };
+
+  // 页面回收机制
+  $scope.$on('$stateChangeSuccess', function() {
+    hideMask();
+  });
   
 })
 
-.controller('CourseDetailCtrl', function($scope, $stateParams, Courses) {
+.controller('CourseDetailCtrl', function($scope, $stateParams, courseService) {
   
   var courseId = $stateParams.courseId;
 
   //获取单个教练数据
-  Courses.oneCourse(courseId).get().then(function(res) {
+  courseService.oneCourse(courseId).then(function(res) {
     console.log(res);
     $scope.course = res;
-  },function(err){
+  }, function(err) {
     console.log(err);
   });
 

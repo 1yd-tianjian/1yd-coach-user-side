@@ -45,7 +45,12 @@
         font-size: 14px;
         text-align: center;
         color: #603a3a;
-        margin: 5px 0 5px 0;
+        margin: 5px 0;
+        padding: 0 5px;
+        width: 64px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         .sex-icon {
           float: left;
           width: 12px;
@@ -152,7 +157,7 @@
   top: 260px;
   padding: 0;
   .coach-wrapper {
-    .list{
+    .list {
       padding: 0;
     }
     .coach-about {

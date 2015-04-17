@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="course-info">
-        <span class="tag">0/1</span>
+        <span class="tag">{{course.sales_quantity}}/{{course.quantity}}</span>
         <span>报名中</span>
         <span class="price" ng-bind="course.price | price"></span>
       </div>
@@ -23,14 +23,14 @@
             <strong>上课地点</strong><span ng-bind="course.teaching_venues"></span>
           </li>
           <li>
-            <strong>适合客户</strong><span>无基础，想学散打的人群</span>
+            <strong>适合客户</strong><span>{{course.target_customer}}</span>
           </li>
         </ul>
       </div>
       <div class="course-info-box">
         <div class="course-info-detail">
           <h1 class="title">课程特色</h1>
-          <p>羽毛球是一项灵活多变、可快可慢、隔网对抗的运动，既 是奥运会的正式比赛项目，又是老少皆宜、易于掌握的大众体 育项目。</p>
+          <p>{{course.summary}}</p>
         </div>
       </div>
       <div class="course-info-box">
@@ -59,7 +59,7 @@
             </div>
             <div class="icon-block">
               <i class="icon ion-ios-star energized"></i>
-              <p><i class="assertive">4.0</i>分
+              <p><i class="assertive">{{course.coach.rank}}</i>分
               </p>
             </div>
             <div class="icon-block">

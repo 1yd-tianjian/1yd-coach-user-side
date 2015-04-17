@@ -14,7 +14,8 @@
     "lodash": "~2.4.1",
     "angular-toastr": "~1.2.0",
     "angular-loading-bar": "~0.7.1",
-    "angular-bindonce": "~0.3.3"
+    "angular-bindonce": "~0.3.3",
+    "photoswipe": "~4.0.7"
   },
   "devDependencies": {},
   "resolutions": {

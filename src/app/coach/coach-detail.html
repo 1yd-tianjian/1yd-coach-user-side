@@ -15,25 +15,25 @@
               <span class="star-icon-dark"></span>
               <span class="star-icon-dark"></span>
               <span class="star-icon-dark"></span>
-              <em class="score">5.0</em>
+              <em class="score">{{coach.rank}}</em>
             </div>
             <div class="coach-date">
               <ul>
-                <li>昵称<span>全全</span>
+                <li>昵称<span>{{coach.nickname}}</span>
                 </li>
-                <li>星座<span>巨蟹座</span>
+                <li>星座<span>{{coach.constellation}}</span>
                 </li>
-                <li>教练类别<span>私教</span>
+                <li>教练类别<span>{{coach.is_full_time | coachType}}</span>
                 </li>
-                <li>教学地点<span>五角场/大学路</span>
+                <li>教学地点<span>{{coach.teaching_location}}</span>
                 </li>
                 <li>注册时间<span>2014年11月</span>
                 </li>
-                <li>我的标签<em>真性情</em><em>阳光</em><em>善良</em>
+                <li>我的标签<div ng-if="coach.tags"><em ng-repeat="tag in coach.tags">{{tag}}</em></div>
                 </li>
               </ul>
             </div>
-            <div class="coach-number">
+            <div class="coach-number" ng-click="collect()">
               <i class="icon ion-ios-people"></i>
               <p><i class="assertive">12</i>人</p>
             </div>
@@ -71,60 +71,37 @@
             <header>
               <h2><b class="dot"></b>教育背景</h2>
             </header>
-            <p class="note">毕业院校：上海体育学院</p>
-            <p class="note">专业：武术散打专业</p>
+            <p class="note">毕业院校：{{coach.graduate_school}}</p>
+            <p class="note">专业：{{coach.major}}</p>
           </li>
           <li class="item">
             <header>
               <h2><b class="dot"></b>教学经历</h2>
             </header>
-            <p class="note">教培行业：3年</p>
+            <p class="note">教培行业：{{coach.coaching_years}}</p>
           </li>
           <li class="item">
             <header>
               <h2><b class="dot"></b>获得荣誉</h2>
             </header>
-            <p class="note">2006年安徽省武术散打锦标赛56kg冠军</p>
-            <p class="note">2007年“全国武术之乡”比赛60kg冠军</p>
+            <p class="note" ng-bind="coach.summary"></p>
           </li>
-          <li class="item">
+          <li class="item" ng-if="">
             <header>
               <h2><b class="dot"></b>教练宣言</h2>
             </header>
-            <p class="note">上课方式独特，性格外向幽默，认证负责，专业水平高，职教三 年来收到学生及家长的一直好评，并帮助中学生顺利升入理想大 学。对营养，减肥，健身，增肌，养生等有一定层次的领悟。
-            </p>
+            <p class="note" ng-bind="coach.slogan"></p>
           </li>
           <li class="item">
             <header>
               <h2><b class="dot"></b>其他类似教练</h2>
             </header>
             <div class="recommend clearfix">
-              <a href="" class="recommend-coach">
-                <img class="recommend-img" src="assets/images/coach-img.jpg" alt="">
+              <a href="" ng-repeat="coach in reCoaches" class="recommend-coach">
+                <img class="recommend-img" ng-src="coach.photo" alt="">
                 <div class="recommend-txt">
-                  <span>散打教练</span>
-                  <span>焦道冠</span>
-                </div>
-              </a>
-              <a href="" class="recommend-coach">
-                <img class="recommend-img" src="assets/images/coach-img.jpg" alt="">
-                <div class="recommend-txt">
-                  <span>散打教练</span>
-                  <span>焦道冠</span>
-                </div>
-              </a>
-              <a href="" class="recommend-coach">
-                <img class="recommend-img" src="assets/images/coach-img.jpg" alt="">
-                <div class="recommend-txt">
-                  <span>散打教练</span>
-                  <span>焦道冠</span>
-                </div>
-              </a>
-              <a href="" class="recommend-coach">
-                <img class="recommend-img" src="assets/images/coach-img.jpg" alt="">
-                <div class="recommend-txt">
-                  <span>散打教练</span>
-                  <span>焦道冠</span>
+                  <span ng-bind="coach.coaching_specialty"></span>
+                  <span ng-bind="coach.name"></span>
                 </div>
               </a>
             </div>
@@ -133,22 +110,10 @@
       </div>
       <div class="coach-courses" ng-switch-when="tab2">
         <ion-list class="course-list">
-          <ion-item>
+          {{courses}}
+          <ion-item bindonce ng-repeat="course in courses">
             <div class="top clearfix">
-              <h2>散打入门</h2>
-              <span>500元/课时</span>
-            </div>
-            <div class="middle">
-              <p><i class="icon ion-ios-location"></i>五角场/大学路</p>
-            </div>
-            <div class="bottom">
-              <span>授课方式：一对一</span>
-              <a href="" ng-click="openSchedule()">课程安排</a>
-            </div>
-          </ion-item>
-          <ion-item>
-            <div class="top clearfix">
-              <h2>散打入门</h2>
+              <h2 bo-bind="course.name"></h2>
               <span>500元/课时</span>
             </div>
             <div class="middle">

@@ -51,7 +51,7 @@
     </ion-refresher>
     <ion-list class="coach-list">
       <ion-item class="item-avatar repeat-animation" bindonce ng-repeat="coach in coaches" type="item-text-wrap" href="#/tab/coaches/{{coach.id}}">
-        <img src="{{coach.photo}}">
+        <img bo-src="coach.photo" />
         <div class="item-txt">
           <i class="sex-icon" ng-class="{'sex-female': coach.gender == 'GENDER_WOMAN'}"></i>
           <span class="fr location"><i class="icon ion-ios-location"></i>12.10km</span>
@@ -69,7 +69,7 @@
           </div>
           <div class="icon-block">
             <i class="icon ion-ios-star energized"></i>
-            <p><i class="assertive">4.0</i>分
+            <p><i class="assertive" bo-bind="coach.rank"></i>分
             </p>
           </div>
           <div class="icon-block">
@@ -83,7 +83,7 @@
         </div>
       </ion-item>
     </ion-list>
-    <ion-infinite-scroll on-infinite="loadMore()" distance="5%">
-    </ion-infinite-scroll>
+    <ion-infinite-scroll ng-if="!vm.pageInfo.last" on-infinite="loadMore()" distance="5%"></ion-infinite-scroll> 
+
   </ion-content>
 </ion-view>

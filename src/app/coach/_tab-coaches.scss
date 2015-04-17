@@ -2,6 +2,7 @@
 .filter-bar {
   background: #fff;
   padding: 0;
+  border-bottom: 1px solid #ddd;
   .filter-head{
     padding: 0;
     height: 43px;
@@ -50,7 +51,6 @@
     }
     li {
       padding-left: 15px;
-      
       p {
         border-bottom: 1px solid #ededee;
         height: 44px;

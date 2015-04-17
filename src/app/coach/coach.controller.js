@@ -2,11 +2,12 @@
 
 angular.module('1yd-coach')
 
-.controller('CoachListCtrl', function($scope, Coaches, Geolocation) {
+.controller('CoachListCtrl', function($scope, coachService) {
 
   //页面初始化
   var vm = $scope.vm = {
-    mask: false
+    mask: false,
+    pageInfo: {}
   };
 
   //筛选条切换
@@ -17,61 +18,115 @@ angular.module('1yd-coach')
   };
 
   //隐藏遮罩层
-  $scope.hideMask = function() {
+  function hideMask() {
     vm.mask = false;
     $scope.currentFilter = null;
   };
+  $scope.hideMask = function() {
+    hideMask();
+  };
 
+  // 收藏教练
+  $scope.collect = function (){
+    alert('sfds');
+    return;
+  };
 
   //初始化教练列表
   $scope.coaches = [];
 
-  //刷新列表
+  var param = {
+    size: 10,
+    page: 0,
+    category_id: null,
+    gender: null
+  };
+
+  /**
+   * 查询教练列表
+   * @param  {[obj]} param [page,size,category_id,gender]
+   * @return {[arr]}       [coachList]
+   */
+  coachService.allCoaches(param).then(function(res) {
+    vm.pageInfo = _.assign(vm.pageInfo, res.info);
+    $scope.coaches = res;
+  }, function(err) {
+    console.log(err);
+  });
+
+  // 刷新列表
   $scope.doRefresh = function() {
-    Geolocation.getLocation();//获取地理位置
-    Coaches.allCoaches.getList().then(function(res) {
-      $scope.coaches = res;
-      $scope.$broadcast('scroll.refreshComplete'); //Stop the ion-refresh from spinning
-    }, function(err) {
-      console.log(err);
-    });
+    param.page = 0;
+    coachService.allCoaches(param).then(function(res) {
+        vm.pageInfo = _.assign(vm.pageInfo, res.info);
+        $scope.coaches = res;
+      })
+      .finally(function() {
+        $scope.$broadcast('scroll.refreshComplete'); // Stop the ion-refresher from spinning
+      });
   };
 
-  //进入教练列表，获取教练数据
-  $scope.doRefresh();
-
-  // 获取教练数据
-  // Coaches.allCoaches.getList().then(function(res) {
-  //   $scope.coaches = res;
-  // }, function(err) {
-  //   console.log(err);
-  // });
-
-  //加载更多
+  // 加载更多
   $scope.loadMore = function() {
-    $scope.$broadcast('scroll.infiniteScrollComplete'); //Stop the ion-infinite from spinning
+    param.page += 1;
+    if (!vm.pageInfo.last) {
+      coachService.allCoaches(param).then(function(res) {
+        vm.pageInfo = _.assign(vm.pageInfo, res.info);
+        $scope.coaches = $scope.coaches.concat(res);
+        $scope.$broadcast('scroll.infiniteScrollComplete'); // Stop the ion-refresher from spinning
+      });
+    };
   };
 
-  //监听路由改变成功调用loadMore方法
-  // $scope.$on('$stateChangeSuccess', function() {
-  //   console.log('stateChangeSuccess');
-  //   $scope.doRefresh();
-  // });
+  // 页面回收机制
+  $scope.$on('$stateChangeSuccess', function() {
+    hideMask();
+  });
+
 })
 
 
 
-.controller('CoachDetailCtrl', function($scope, $stateParams, $ionicModal, Coaches) {
-
+.controller('CoachDetailCtrl', function($scope, $stateParams, $ionicModal, coachService) {
   var coachId = $stateParams.coachId;
 
   //获取单个教练数据
-  Coaches.oneCoach(coachId).get().then(function(res) {
-    $scope.coach = res;
-  },function(err){
+  var coachPromise = coachService.oneCoach(coachId);
+  $scope.coach = coachPromise.$object;
+  $scope.courses = coachPromise.call('getCoachCourseList', coachId).$object;
+  console.log($scope.courses);
+  console.log('courses');
+  console.log(coachPromise);
+  // coachService.oneCoach(coachId).then(function(res) {
+  //   $scope.courses = res.getCoachCourseList(coachId).$object;
+  //   $scope.coach = res;
+  // }, function(err) {
+  //   console.log(err);
+  // });
+
+  //初始化推荐教练列表
+  $scope.reCoaches = [];
+
+  var param = {
+    size: 4,
+    page: 0,
+    category_id: null,
+    gender: null
+  };
+
+  /**
+   * 查询推荐教练列表
+   * @param  {[obj]} param [page,size,category_id,gender]
+   * @return {[arr]}       [coachList]
+   */
+  coachService.allCoaches(param).then(function(res) {
+    console.log(res);
+    $scope.reCoaches = res;
+  }, function(err) {
     console.log(err);
   });
 
+  //课程安排modal
   $ionicModal.fromTemplateUrl('app/components/modals/timetable/timetable.html', {
     scope: $scope,
     animation: 'slide-in-up',
@@ -80,16 +135,17 @@ angular.module('1yd-coach')
     $scope.modal = modal;
   });
 
+  //弹出课程安排modal
   $scope.openSchedule = function() {
     $scope.modal.show();
+  };
 
+  //关闭课程安排modal
+  $scope.closeSchedule = function() {
+    $scope.modal.hide();
+  };
 
-    $scope.closeSchedule = function() {
-      $scope.modal.hide();
-    };
-  }
-
-  // init tab
+  //教练Tab
   $scope.currentTab = "tab1";
   $scope.setTab = function(tab) {
     $scope.currentTab = tab;
