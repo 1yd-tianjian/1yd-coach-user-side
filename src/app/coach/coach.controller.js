@@ -87,22 +87,15 @@ angular.module('1yd-coach')
 
 
 
-.controller('CoachDetailCtrl', function($scope, $stateParams, $ionicModal, coachService) {
+.controller('CoachDetailCtrl', function($scope, $stateParams, $ionicModal, Restangular, coachService) {
   var coachId = $stateParams.coachId;
 
   //获取单个教练数据
-  var coachPromise = coachService.oneCoach(coachId);
-  $scope.coach = coachPromise.$object;
-  $scope.courses = coachPromise.call('getCoachCourseList', coachId).$object;
-  console.log($scope.courses);
-  console.log('courses');
-  console.log(coachPromise);
-  // coachService.oneCoach(coachId).then(function(res) {
-  //   $scope.courses = res.getCoachCourseList(coachId).$object;
-  //   $scope.coach = res;
-  // }, function(err) {
-  //   console.log(err);
-  // });
+  var baseCoaches = Restangular.one('coaches', coachId);
+  $scope.coach    = baseCoaches.get().$object;
+  $scope.courses  = baseCoaches.getList('courses').$object;
+  // $scope.comments = baseCoaches.getList('comments').$object;
+  
 
   //初始化推荐教练列表
   $scope.reCoaches = [];

@@ -110,17 +110,16 @@
       </div>
       <div class="coach-courses" ng-switch-when="tab2">
         <ion-list class="course-list">
-          {{courses}}
           <ion-item bindonce ng-repeat="course in courses">
             <div class="top clearfix">
               <h2 bo-bind="course.name"></h2>
-              <span>500元/课时</span>
+              <span bo-bind="course.price | price"></span>
             </div>
             <div class="middle">
-              <p><i class="icon ion-ios-location"></i>五角场/大学路</p>
+              <p><i class="icon ion-ios-location"></i><span bo-bind="course.teaching_venues"></span></p>
             </div>
             <div class="bottom">
-              <span>授课方式：一对一</span>
+              <span>授课方式：</span><span bo-bind="course.course_type | courseType"></span>
               <a href="" ng-click="openSchedule()">课程安排</a>
             </div>
           </ion-item>
@@ -133,10 +132,10 @@
           <h2><i class="icon ion-ios-chatbubble-outline"></i>学员评价(11)</h2>
         </header>
         <ion-list>
-          <ion-item>
+          <ion-item bindonce ng-repeat="comment in comments">
             <div class="evaluate-info">
-              <img src="assets/images/coach-img.jpg" alt="">
-              <h2><span class="name">宇宙无敌黑</span><span class="date">2015-01-15 14:35</span></h2>
+              <img bo-src="" alt="">
+              <h2><span class="name">宇宙无敌黑</span><span class="date" bo-bind="comment.creation_time | time">2015-01-15 14:35</span></h2>
               <div class="star">
                 <span class="star-icon-light"></span>
                 <span class="star-icon-light"></span>
@@ -147,45 +146,7 @@
               <p>参与课程：<span>散打初级班</span>
               </p>
             </div>
-            <div class="evaluate-cont">
-              教练很好，很有耐心，对于我这种菜鸟级的学员帮助很大！ 好评，强烈推荐！
-            </div>
-          </ion-item>
-          <ion-item>
-            <div class="evaluate-info">
-              <img src="assets/images/coach-img.jpg" alt="">
-              <h2><span class="name">宇宙无敌黑</span><span class="date">2015-01-15 14:35</span></h2>
-              <div class="star">
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-              </div>
-              <p>参与课程：<span>散打初级班</span>
-              </p>
-            </div>
-            <div class="evaluate-cont">
-              教练很好，很有耐心，对于我这种菜鸟级的学员帮助很大！ 好评，强烈推荐！
-            </div>
-          </ion-item>
-          <ion-item>
-            <div class="evaluate-info">
-              <img src="assets/images/coach-img.jpg" alt="">
-              <h2><span class="name">宇宙无敌黑</span><span class="date">2015-01-15 14:35</span></h2>
-              <div class="star">
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-                <span class="star-icon-light"></span>
-              </div>
-              <p>参与课程：<span>散打初级班</span>
-              </p>
-            </div>
-            <div class="evaluate-cont">
-              教练很好，很有耐心，对于我这种菜鸟级的学员帮助很大！ 好评，强烈推荐！
-            </div>
+            <div class="evaluate-cont" bo-bind="comment.comment"></div>
           </ion-item>
         </ion-list>
         <ion-infinite-scroll on-infinite="loadMore()" distance="5%">
