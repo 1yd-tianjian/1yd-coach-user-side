@@ -2,7 +2,21 @@
 
 angular.module('1yd-coach')
 
-.controller('CoachListCtrl', function($scope, coachService) {
+.controller('CoachListCtrl', function($scope, coachService, meatDataService) {
+
+
+  meatDataService.meatData().then(function(data){
+    console.log(data);
+    //运动类型
+    $scope.categories = data.categories;
+    //排序方式
+    $scope.sorts = data.sorts;
+    //行政区
+    $scope.districts = data.city_districts[0].districts;
+    //商圈
+    $scope.cbds = data.city_districts[0].districts[0].district_cbds[0];
+    console.log($scope.cbds);
+  });
 
   //页面初始化
   var vm = $scope.vm = {

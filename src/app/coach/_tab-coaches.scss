@@ -45,6 +45,25 @@
   position: relative;
   background: #fff;
   .filter-option {
+    .filter-option-location{
+      .left{
+        width: 40%;
+        float: left;
+        background: #f5f5f5;
+        li{
+          &.active{
+            background: #fff;
+          }
+          p{
+            border-bottom: 1px solid #f5f5f5;
+          }
+        }
+      }
+      .right{
+        width: 60%;
+        float: right;
+      }
+    }
     .scroll-view {
       max-height: 220px;
       border-top: 1px solid #ddd;

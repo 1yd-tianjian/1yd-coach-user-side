@@ -4,9 +4,7 @@ angular.module('1yd-coach')
 
 .service('coachService', function(Restangular) {
 
-  var basePath = {
-    coach: Restangular.all('coaches')
-  };
+  var coachPath = Restangular.all('coaches');
 
   /**
    * 获取教练列表数据
@@ -15,7 +13,7 @@ angular.module('1yd-coach')
    */
   this.allCoaches = function(param) {
     console.log(param);
-    return basePath.coach.getList(param);
+    return coachPath.getList(param);
   };
 
   /**
@@ -24,6 +22,13 @@ angular.module('1yd-coach')
    * @return {[obj]}    [coachData]
    */
   this.oneCoach = function(id) {
-    return basePath.coach.get(id);
+    return coachPath.get(id);
+  };
+})
+
+.service('meatDataService', function(Restangular) {
+  var meatDataPath = Restangular.one('meta-data');
+  this.meatData = function() {
+    return meatDataPath.get();
   };
 });
