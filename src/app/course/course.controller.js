@@ -2,7 +2,7 @@
 
 angular.module('1yd-coach')
 
-.controller('CourseListCtrl', function($scope, $stateParams, courseService) {
+.controller('CourseListCtrl', function($scope, $stateParams, courseService, meatDataService) {
 
   //页面初始化
   var vm = $scope.vm = {
@@ -16,6 +16,19 @@ angular.module('1yd-coach')
     $scope.currentFilter = filter;
     vm.mask = true;
   };
+
+  meatDataService.meatData().then(function(data){
+    console.log(data);
+    //运动类型
+    $scope.categories = data.categories;
+    //排序方式
+    $scope.sorts = data.sorts;
+    //行政区
+    $scope.districts = data.city_districts[0].districts;
+    //商圈
+    $scope.cbds = data.city_districts[0].districts[0].district_cbds[0];
+    console.log($scope.cbds);
+  });
 
   //隐藏遮罩层
   function hideMask() {
@@ -79,9 +92,28 @@ angular.module('1yd-coach')
   
 })
 
-.controller('CourseDetailCtrl', function($scope, $stateParams, courseService) {
+.controller('CourseDetailCtrl', function($scope, $stateParams, $ionicModal, courseService) {
   
   var courseId = $stateParams.courseId;
+
+  //选择场地modal
+  $ionicModal.fromTemplateUrl('app/components/modals/chooseField/chooseField.html', {
+    scope: $scope,
+    animation: 'slide-in-up',
+    hardwareBackButtonClose: true
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  //弹出选择场地modal
+  $scope.openChooseField = function() {
+    $scope.modal.show();
+  };
+
+  //关闭选择场地modal
+  $scope.closeChooseField = function() {
+    $scope.modal.hide();
+  };
 
   //获取单个教练数据
   courseService.oneCourse(courseId).then(function(res) {

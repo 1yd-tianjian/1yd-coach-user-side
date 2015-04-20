@@ -1,0 +1,54 @@
+.field-cont {
+  background: #f3f4f9;
+  .field-list {
+    padding-top: 10px;
+    .item {
+      margin-bottom: 10px;
+      border: 0;
+      .item-content{
+      	border: 1px solid #fff;
+      }
+      input:checked ~ .item-content {
+        background: transparent;
+        border: 1px solid $public-color;
+      }
+      .radio-icon {
+      	color: $public-color;
+      	top: 5px;
+        font-size: 40px;
+      }
+      input:checked ~ .ion-android-radio-button-off {
+        visibility: hidden;
+      }
+      .ion-android-radio-button-off {
+				color: #ddd;
+        position: absolute;
+        top: 5px;
+        right: 0;
+        z-index: 3;
+        visibility: hidden;
+        padding: 14px;
+        height: 100%;
+        font-size: 40px;
+        visibility: visible;
+      }
+      .field-top {
+        border-bottom: 1px solid #ddd;
+        padding: 0 10px 10px 10px;
+        h2 {
+          color: #333;
+          .icon {
+            margin-right: 5px;
+            color: $public-color;
+          }
+        }
+      }
+      .field-bottom {
+        padding: 10px 10px 0 10px;
+        p {
+          color: #333;
+        }
+      }
+    }
+  }
+}

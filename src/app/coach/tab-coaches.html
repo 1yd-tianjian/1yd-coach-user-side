@@ -38,7 +38,7 @@
           </ion-scroll>
           <ion-scroll class="right" direction="y">
             <ul>
-              <li>
+              <li class="active">
                 <p>八佰伴</p>
               </li>
               <li>
@@ -85,13 +85,25 @@
         </div>
       </div>
       <div class="filter-option" ng-switch-when="filter3">
-        <ion-scroll direction="y">
-          <ul>
-            <li bindonce ng-repeat="sort in sorts">
-              <p bo-bind="sort.sort_name"></p>
-            </li>
-          </ul>
-        </ion-scroll>
+        <div class="filter-option-item">
+          <h2><i class="icon ion-arrow-right-b"></i>性别</h2>
+          <div class="filter-option-item-select">
+            <span class="active">不限</span>
+            <span>男</span>
+            <span>女</span>
+          </div>
+        </div>
+        <div class="filter-option-item">
+          <h2><i class="icon ion-arrow-right-b"></i>排序方式</h2>
+          <div class="filter-option-item-select">
+            <span ng-repeat="sort in sorts">{{sort.sort_name}}</span>
+          </div>
+        </div>
+        <div class="filter-option-item">
+          <button>
+            确定
+          </button>
+        </div>
       </div>
     </div>
   </div>
