@@ -28,8 +28,12 @@ $public-color: #ff6600;
   background: #f3f4f9;
 }
 
-.scroll{
+.scroll {
   height: 100%;
+}
+
+.item-input{
+  background: #fff;
 }
 
 .slider-pager {
@@ -56,6 +60,9 @@ $public-color: #ff6600;
   }
   .button.button-clear {
     color: #f60;
+  }
+  .button.button-icon {
+    color: $public-color;
   }
 }
 
@@ -108,6 +115,10 @@ $public-color: #ff6600;
       display: none;
     }
   }
+}
+
+.pswp__top-bar{
+  top: 44px;
 }
 
 //列表动画

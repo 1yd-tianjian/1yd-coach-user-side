@@ -18,8 +18,8 @@
             <li class="active">
               <p>不限</p>
             </li>
-            <li bindonce ng-repeat="category in categories">
-              <p bo-bind="category.category_name"></p>
+            <li bindonce ng-repeat="category in categories" ng-class="{'active': isActive}">
+              <p bo-bind="category.category_name" ng-click="setCateFilter()"></p>
             </li>
           </ul>
         </ion-scroll>
@@ -125,10 +125,6 @@
           </div>
         </div>
         <div class="item-txt">
-          <div class="icon-block">
-            <i class="icon ion-heart assertive"></i>
-            <p>已收藏</p>
-          </div>
           <div class="icon-block">
             <i class="icon ion-ios-star energized"></i>
             <p><i class="assertive" bo-bind="coach.rank"></i>分

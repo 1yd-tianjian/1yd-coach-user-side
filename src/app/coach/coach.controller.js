@@ -5,7 +5,7 @@ angular.module('1yd-coach')
 .controller('CoachListCtrl', function($scope, coachService, meatDataService) {
 
 
-  meatDataService.meatData().then(function(data){
+  meatDataService.meatData().then(function(data) {
     console.log(data);
     //运动类型
     $scope.categories = data.categories;
@@ -21,6 +21,7 @@ angular.module('1yd-coach')
   //页面初始化
   var vm = $scope.vm = {
     mask: false,
+    isActive: false,
     pageInfo: {}
   };
 
@@ -31,6 +32,16 @@ angular.module('1yd-coach')
     vm.mask = true;
   };
 
+  $scope.setCateFilter = function() {
+    angular.forEach($scope.categories, function(category) {
+      category.isActive = true;
+    });
+    // $scope.isActive = true;
+
+
+    // vm.isActive = true;
+  };
+
   //隐藏遮罩层
   function hideMask() {
     vm.mask = false;
@@ -38,12 +49,6 @@ angular.module('1yd-coach')
   };
   $scope.hideMask = function() {
     hideMask();
-  };
-
-  // 收藏教练
-  $scope.collect = function (){
-    alert('sfds');
-    return;
   };
 
   //初始化教练列表
@@ -102,14 +107,30 @@ angular.module('1yd-coach')
 
 
 .controller('CoachDetailCtrl', function($scope, $stateParams, $ionicModal, Restangular, coachService) {
+
+
+
   var coachId = $stateParams.coachId;
 
-  //获取单个教练数据
+
   var baseCoaches = Restangular.one('coaches', coachId);
-  $scope.coach    = baseCoaches.get().$object;
-  $scope.courses  = baseCoaches.getList('courses').$object;
-  // $scope.comments = baseCoaches.getList('comments').$object;
-  
+
+  //获取单个教练数据
+  $scope.coach = baseCoaches.get().$object;
+  //获取单个教练已开课程列表
+  $scope.courses = baseCoaches.getList('courses').$object;
+  //获取单个教练评论列表
+  $scope.comments = baseCoaches.getList('comments').$object;
+
+  // 收藏教练
+  $scope.collect = function() {
+    baseCoaches.post('collect', {}).then(function(res) {
+      console.log(res);
+    }, function(err) {
+      console.log(err);
+    });
+  };
+
 
   //初始化推荐教练列表
   $scope.reCoaches = [];
@@ -156,6 +177,68 @@ angular.module('1yd-coach')
   $scope.currentTab = "tab1";
   $scope.setTab = function(tab) {
     $scope.currentTab = tab;
+  };
+
+
+  $scope.openPhotoSwipe = function() {
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+
+    // build items array
+    var items = [{
+      src: 'https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_b.jpg',
+      w: 964,
+      h: 1024,
+      title: ' haha'
+    }, {
+      src: 'https://farm7.staticflickr.com/6175/6176698785_7dee72237e_b.jpg',
+      w: 1024,
+      h: 683,
+      title: ' huhu'
+    }];
+
+    // define options (if needed)
+    var options = {
+      index: 0,   
+      history: false,
+      focus: false,
+      loop: true,
+
+      showAnimationDuration: 1,
+      hideAnimationDuration: 1,
+      barsSize: {
+        top: 44,
+        bottom: 'auto'
+      },
+      timeToIdle: 4000,
+      timeToIdleOutside: 1000,
+      loadingIndicatorDelay: 1000,
+      addCaptionHTMLFn: function(item, captionEl, isFake) {
+
+        if (!item.title) {
+          captionEl.children[0].innerHTML = '';
+          return false;
+        }
+        captionEl.children[0].innerHTML = item.title;
+        return true;
+      },
+      closeEl: true,
+      captionEl: true,
+      fullscreenEl: true,
+      zoomEl: true,
+      shareEl: true,
+      counterEl: true,
+      arrowEl: true,
+      preloaderEl: true,
+      tapToClose: false,
+      tapToToggleControls: true,
+      clickToCloseNonZoomable: true,
+      closeElClasses: ['item', 'caption', 'zoom-wrap', 'ui', 'top-bar'],
+      indexIndicatorSep: ' / ',
+
+    };
+
+    var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.init();
   };
 
 });
