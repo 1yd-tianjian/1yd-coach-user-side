@@ -180,19 +180,20 @@ angular.module('1yd-coach')
   };
 
 
+  //相册
   $scope.openPhotoSwipe = function() {
     var pswpElement = document.querySelectorAll('.pswp')[0];
 
     // build items array
     var items = [{
-      src: 'https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_b.jpg',
-      w: 964,
+      src: 'assets/images/coach-img.jpg',
+      w: 1024,
       h: 1024,
       title: ' haha'
     }, {
-      src: 'https://farm7.staticflickr.com/6175/6176698785_7dee72237e_b.jpg',
+      src: 'assets/images/coach-img.jpg',
       w: 1024,
-      h: 683,
+      h: 1024,
       title: ' huhu'
     }];
 
@@ -202,6 +203,8 @@ angular.module('1yd-coach')
       history: false,
       focus: false,
       loop: true,
+      showHideOpacity: true,
+      bgOpacity: 0.8,
 
       showAnimationDuration: 1,
       hideAnimationDuration: 1,
