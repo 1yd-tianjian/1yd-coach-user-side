@@ -61,7 +61,7 @@ angular.module('1yd-coach')
    * @param  {[obj]} param [page,size,category_id,gender]
    * @return {[arr]}       [coachList]
    */
-  coachService.allCoaches(param).then(function(res) {
+  coachService.list(param).then(function(res) {
     vm.pageInfo = _.assign(vm.pageInfo, res.info);
     $scope.coaches = res;
   }, function(err) {
