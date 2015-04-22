@@ -105,11 +105,16 @@ angular.module('1yd-coach')
   var coachId = $stateParams.coachId;
 
   //获取单个教练数据
-  var baseCoaches = Restangular.one('coaches', coachId);
-  $scope.coach    = baseCoaches.get().$object;
-  $scope.courses  = baseCoaches.getList('courses').$object;
+  //var baseCoaches = Restangular.one('coaches', coachId);
+  //$scope.coach    = baseCoaches.get().$object;
+  //$scope.courses  = baseCoaches.getList('courses').$object;
   // $scope.comments = baseCoaches.getList('comments').$object;
-  
+
+
+    var coachPromise = coachService.find(coachId);
+    coachPromise.then(function(coach) {
+      $scope.courses = coach.courses().$object;
+    })
 
   //初始化推荐教练列表
   $scope.reCoaches = [];
@@ -126,7 +131,7 @@ angular.module('1yd-coach')
    * @param  {[obj]} param [page,size,category_id,gender]
    * @return {[arr]}       [coachList]
    */
-  coachService.allCoaches(param).then(function(res) {
+  coachService.list(param).then(function(res) {
     console.log(res);
     $scope.reCoaches = res;
   }, function(err) {

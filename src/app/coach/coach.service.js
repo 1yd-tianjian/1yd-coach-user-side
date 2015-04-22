@@ -81,6 +81,19 @@ angular.module('1yd-coach')
       return base.post(data, queryParams, headers);
     };
 
+    /**
+     * 获取全部教练信息
+     */
+    this.all = function() {
+      return this.list();
+    };
+
+    /**
+     * 获取教练信息列表
+     */
+    this.list = function(queryParams) {
+      return base.getList(queryParams);
+    };
   })
 
   .service('meatDataService', function (Restangular) {
@@ -89,54 +102,3 @@ angular.module('1yd-coach')
       return meatDataPath.get();
     };
   });
-
-
-angular.module('1yd-coach')
-  //.factory('Coach', function () {
-  //  function Book(bookData) {
-  //    if (bookData) {
-  //      this.setData(bookData);
-  //    }
-  //    // Some other initializations related to book
-  //  };
-  //  Book.prototype = {
-  //    setData: function (bookData) {
-  //      angular.extend(this, bookData);
-  //    },
-  //    load: function (id) {
-  //      var scope = this;
-  //      $http.get('ourserver/books/' + bookId).success(function (bookData) {
-  //        scope.setData(bookData);
-  //      });
-  //    },
-  //    delete: function () {
-  //      $http.delete('ourserver/books/' + bookId);
-  //    },
-  //    update: function () {
-  //      $http.put('ourserver/books/' + bookId, this);
-  //    },
-  //    getImageUrl: function (width, height) {
-  //      return 'our/image/service/' + this.book.id + '/' + width + '/' + height;
-  //    },
-  //    isAvailable: function () {
-  //      if (!this.book.stores || this.book.stores.length === 0) {
-  //        return false;
-  //      }
-  //      return this.book.stores.some(function (store) {
-  //        return store.quantity > 0;
-  //      });
-  //    }
-  //  };
-  //  return Book;
-  //})
-  .factory('CoachSvc', function (Restangular) {
-    Restangular.extendModel('coaches', function (elem) {
-
-      elem.courses = function (queryParams, headers) {
-        return this.getList('courses', queryParams, headers);
-      };
-
-      return elem;
-    });
-    return Restangular.all('coaches');
-  })
