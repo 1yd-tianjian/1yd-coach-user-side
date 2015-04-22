@@ -3,7 +3,7 @@
   background: #fff;
   padding: 0;
   border-bottom: 1px solid #ddd;
-  .filter-head{
+  .filter-head {
     padding: 0;
     height: 43px;
   }
@@ -45,21 +45,61 @@
   position: relative;
   background: #fff;
   .filter-option {
-    .filter-option-location{
-      .left{
+    .filter-option-item {
+      padding: 10px 20px;
+      h2 {
+        font-size: 12px;
+        color: #9ca2a9;
+        .icon {
+          margin-right: 5px;
+        }
+      }
+      button{
+        width: 100%;
+        height: 36px;
+        background: $public-color;
+        color: #fff;
+        border-radius: 3px;
+        border: 0;
+      }
+      .filter-option-item-select {
+        display: -webkit-box;
+        display: box;
+        span {
+          padding: 3px;
+          color: #9ca2a9;
+          text-align: center;
+          border: 1px solid #9ca2a9;
+          margin: 5px 10px;
+          -webkit-box-flex: 1;
+          box-flex: 1;
+          display: box;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-box-pack: center;
+          border-radius: 3px;
+          &.active{
+            border: 1px solid $public-color;
+            color: $public-color;
+          }
+        }
+      }
+    }
+    .filter-option-location {
+      .left {
         width: 40%;
         float: left;
         background: #f5f5f5;
-        li{
-          &.active{
+        li {
+          &.active {
             background: #fff;
           }
-          p{
+          p {
             border-bottom: 1px solid #f5f5f5;
           }
         }
       }
-      .right{
+      .right {
         width: 60%;
         float: right;
       }
@@ -77,8 +117,8 @@
         margin: 0;
         color: #9ca2a9;
       }
-      &.active{
-        p{
+      &.active {
+        p {
           color: $public-color;
           border-bottom: 1px solid $public-color;
         }

@@ -1,9 +1,19 @@
 <ion-view view-title="我的">
   <ion-content>
-    <ion-list>
-				<button class="button" ng-click="showToast()">
-				  toast
-				</button>
-    </ion-list>
+    <form name="loginForm" novilidate>
+      <ion-list>
+        <label class="item item-input">
+          <span class="input-label">账号</span>
+          <input name="userName" type="text" ng-model="vm.userName" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">密码</span>
+          <input name="passWord" type="password" ng-model="vm.passWord" required>
+        </label>
+      </ion-list>
+      <div class="padding">
+        <button class="button button-block button-energized" ng-click="login()" ng-disabled="loginForm.$invalid">登录</button>
+      </div>
+    </form>
   </ion-content>
 </ion-view>
