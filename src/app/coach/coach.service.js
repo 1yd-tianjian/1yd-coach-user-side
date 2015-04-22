@@ -37,6 +37,14 @@ angular.module('1yd-coach')
         return this.getList('courses', queryParams, headers);
       };
 
+      /**
+       * 刷新当前教练信息
+       * @returns {promise}
+       */
+      elem.fresh = function () {
+        return this.get();
+      };
+
       return elem;
     });
 
@@ -84,15 +92,15 @@ angular.module('1yd-coach')
     /**
      * 获取全部教练信息
      */
-    this.all = function() {
+    this.all = function () {
       return this.list();
     };
 
     /**
      * 获取教练信息列表
      */
-    this.list = function(queryParams) {
-      return base.getList(queryParams);
+    this.list = function (queryParams, headers) {
+      return base.getList(queryParams, headers);
     };
   })
 
