@@ -71,7 +71,7 @@ angular.module('1yd-coach')
   // 刷新列表
   $scope.doRefresh = function() {
     param.page = 0;
-    coachService.allCoaches(param).then(function(res) {
+    coachService.list(param).then(function(res) {
         vm.pageInfo = _.assign(vm.pageInfo, res.info);
         $scope.coaches = res;
       })
@@ -113,6 +113,7 @@ angular.module('1yd-coach')
 
     var coachPromise = coachService.find(coachId);
     coachPromise.then(function(coach) {
+      $scope.coach = coach;
       $scope.courses = coach.courses().$object;
     })
 
