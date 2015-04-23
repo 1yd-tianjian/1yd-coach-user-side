@@ -109,8 +109,9 @@ angular.module('1yd-coach')
   //$scope.coach    = baseCoaches.get().$object;
   //$scope.courses  = baseCoaches.getList('courses').$object;
   // $scope.comments = baseCoaches.getList('comments').$object;
-
-
+  //  coachService.send();
+    console.log('coachService',coachService);
+    //console.log('coachService',coachService.send);
     var coachPromise = coachService.find(coachId);
     coachPromise.then(function(coach) {
       $scope.coach = coach;

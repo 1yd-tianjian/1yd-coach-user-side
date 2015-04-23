@@ -1,30 +1,153 @@
 'use strict';
 
 angular.module('1yd-coach')
+  .factory('BaseService', function ($q) {
 
-  .service('coachService', function (Restangular) {
+    var BaseService = {
+      rest: {},
+      _store: {},
+      _search: _search,
+      _fresh: _fresh,
+      _instance: _retrieveInstance,
+      _freshCollection: _freshCollection,
+      find: find,
+      fresh: fresh,
+      save: save,
+      create: create,
+      all: all,
+      list: list
+    };
 
-    //var coachPath = Restangular.all('coaches');
-    //
-    ///**
-    // * 获取教练列表数据
-    // * @param  {[obj]} param [page,size,category_id,gender]
-    // * @return {[array]}       [coachList]
-    // */
-    //this.allCoaches = function (param) {
-    //  console.log(param);
-    //  return coachPath.getList(param);
-    //};
-    //
-    ///**
-    // * 获取单个教练数据
-    // * @param  {[number]} id [coachId]
-    // * @return {[obj]}    [coachData]
-    // */
-    //this.oneCoach = function (id) {
-    //  return coachPath.get(id);
-    //};
-    var base = Restangular.all('coaches')
+    return BaseService;
+    /**
+     * 具体实现
+     */
+    function _fresh(id, deferred) {
+      var self = this;
+      console.log(self);
+      var promise = self.rest.get(id);
+      promise.then(function (data) {
+        var model = self._instance(data.id, data);
+        deferred.resolve(model);
+      }, function () {
+        deferred.reject();
+      })
+    }
+
+    function _retrieveInstance(id, modelData) {
+      var self = this;
+      var instance = self._store[id];
+      if (instance) {
+        angular.extend(instance, modelData);
+      } else {
+        instance = modelData;
+        self._store[id] = instance;
+      }
+
+      return instance;
+    }
+
+    function _search(id) {
+      var self = this;
+      return self._store[id];
+    };
+
+
+    /**
+     * 刷新数据列表
+     * @param params
+     * @param headers
+     * @param deferred
+     * @private
+     */
+    function _freshCollection(params, headers, deferred) {
+      var self = this;
+      var promise = self.rest.getList(params, headers);
+      promise.then(function (data) {
+        var collection = [];
+        data.forEach(function (modelData) {
+          var model = self._instance(modelData.id, modelData);
+          collection.push(model);
+        });
+
+        deferred.resolve(collection);
+      }, function () {
+        deferred.reject();
+      })
+    };
+
+
+    /**
+     * 查询单个教练信息
+     * @param id
+     * @return {promise}
+     */
+    function find(id) {
+      var deferred = $q.defer();
+      var model = this._search(id);
+      if (model) {
+        deferred.resolve(model);
+      } else {
+        this._fresh(id, deferred);
+      }
+      console.log(this._store);
+      return deferred.promise;
+    };
+
+    /**
+     * 刷新一个教练信息
+     * @param id
+     * @return {promise}
+     */
+    function fresh(id) {
+      var deferred = $q.defer();
+      this._fresh(id, deferred);
+      return deferred.promise
+    };
+
+    /**
+     * 保存教练信息
+     * @param model
+     * @param queryParams
+     * @param headers
+     * @return {promise}
+     */
+    function save(model, queryParams, headers) {
+
+      return this.rest.post(model, queryParams, headers);
+    };
+
+    /**
+     * 创建一个教练信息
+     * @param model
+     * @param queryParams
+     * @param headers
+     * @return {promise}
+     */
+    function create(model, queryParams, headers) {
+      return this.rest.post(model, queryParams, headers);
+    };
+
+    /**
+     * 获取全部教练信息
+     */
+    function all() {
+      return this.list();
+    };
+
+    /**
+     * 获取教练信息列表
+     */
+    function list(queryParams, headers) {
+      var deferred = $q.defer();
+      this._freshCollection(queryParams, headers, deferred);
+      return deferred.promise;
+    };
+
+
+  })
+  .service('coachService', function (Restangular, $q, BaseService) {
+    angular.extend(this, BaseService);
     Restangular.extendModel('coaches', function (elem) {
 
       /**
@@ -47,61 +170,7 @@ angular.module('1yd-coach')
 
       return elem;
     });
-
-
-    /**
-     * 查询单个教练信息
-     * @param id
-     * @return {promise}
-     */
-    this.find = function (id) {
-      return base.get(id);
-    };
-
-    /**
-     * 刷新一个教练信息
-     * @param id
-     * @return {promise}
-     */
-    this.fresh = function (id) {
-      return base.get(id);
-    };
-
-    /**
-     * 保存教练信息
-     * @param data
-     * @param queryParams
-     * @param headers
-     * @return {promise}
-     */
-    this.save = function (data, queryParams, headers) {
-      return base.post(data, queryParams, headers);
-    };
-
-    /**
-     * 创建一个教练信息
-     * @param data
-     * @param queryParams
-     * @param headers
-     * @return {promise}
-     */
-    this.create = function (data, queryParams, headers) {
-      return base.post(data, queryParams, headers);
-    };
-
-    /**
-     * 获取全部教练信息
-     */
-    this.all = function () {
-      return this.list();
-    };
-
-    /**
-     * 获取教练信息列表
-     */
-    this.list = function (queryParams, headers) {
-      return base.getList(queryParams, headers);
-    };
+    this.rest = Restangular.all('coaches');
   })
 
   .service('meatDataService', function (Restangular) {
