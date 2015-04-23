@@ -84,7 +84,7 @@ angular.module('1yd-coach')
   $scope.loadMore = function() {
     param.page += 1;
     if (!vm.pageInfo.last) {
-      coachService.allCoaches(param).then(function(res) {
+      coachService.list(param).then(function(res) {
         vm.pageInfo = _.assign(vm.pageInfo, res.info);
         $scope.coaches = $scope.coaches.concat(res);
         $scope.$broadcast('scroll.infiniteScrollComplete'); // Stop the ion-refresher from spinning

@@ -1,4 +1,4 @@
-$public-color: #ff6600;
+$public-color: #ff5400;
 @mixin clearfix {
   &:before, &:after {
     content: " ";
@@ -56,10 +56,10 @@ $public-color: #ff6600;
 
 .bar.bar-light {
   .title {
-    color: #f60;
+    color: $public-color;
   }
   .button.button-clear {
-    color: #f60;
+    color: $public-color;
   }
   .button.button-icon {
     color: $public-color;
@@ -75,17 +75,17 @@ $public-color: #ff6600;
 }
 
 .tab-item.tab-item-active {
-  color: #f60;
+  color: $public-color;
 }
 
 .tabs-stable > .tabs,
 .tabs.tabs-stable {
-  color: #f60;
+  color: $public-color;
 }
 
 .tabs-top.tabs-striped {
   .tab-item.tab-item-active {
-    color: #f60;
+    color: $public-color;
   }
 }
 
@@ -94,7 +94,7 @@ $public-color: #ff6600;
     color: #929292;
   }
   .tab-item.tab-item-active {
-    border-color: #f60;
+    border-color: $public-color;
   }
   .tab-item.active {
     border-color: #929292;
